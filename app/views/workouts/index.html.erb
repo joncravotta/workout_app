@@ -1,0 +1,16 @@
+<h1><%= @workout_plan.name %></h1>
+<p>
+  <%= @workout_plan.summary %>
+</p>
+
+<p>
+  <%= @workout_plan.description %>
+</p>
+<hr />
+<% @workout.each do |f| %>
+    Day <%= f.day %><br />
+  <%= f.name %><br />
+  <%= f.description %>
+<hr />
+<% end %>
+<%= link_to 'New Workout', new_workout_plan_workout_path %>
