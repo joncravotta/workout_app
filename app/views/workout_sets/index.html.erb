@@ -1,0 +1,18 @@
+<h1><%= @workout.name %></h1>
+<p>
+  day<%= @workout.day %>
+</p>
+
+<p>
+  <%= @workout.description %>
+</p>
+<hr />
+<% @workout_set.each do |f| %>
+  <%= f.name %><br />
+  <%= f.rep_type %><br />
+  <%= f.amount %><br />
+  <%= f.description %>
+<hr />
+<% end %>
+<%= link_to 'New Set', new_workout_workout_set_path %>
+<%= link_to 'Back to workouts', workout_plan_workouts_path(@workout.workout_plan_id) %>

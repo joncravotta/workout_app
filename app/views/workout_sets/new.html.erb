@@ -1,0 +1,15 @@
+<h1>Set for a workout</h1>
+<%= form_for ([@workout_set.workout, @workout_set]) do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+
+    <%= f.label :rep_type %>
+    <%= f.text_field :rep_type %>
+
+    <%= f.label :amount %>
+    <%= f.text_field :amount %>
+
+  <%= f.label :description %>
+  <%= f.text_area :description, rows: 10 %>
+    <%= f.submit %>
+<% end %>

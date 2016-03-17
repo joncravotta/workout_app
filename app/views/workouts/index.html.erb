@@ -8,9 +8,11 @@
 </p>
 <hr />
 <% @workout.each do |f| %>
-    Day <%= f.day %><br />
+    <%= link_to "Day #{f.day}", workout_workout_sets_path(f) %>
+    <br />
   <%= f.name %><br />
   <%= f.description %>
 <hr />
 <% end %>
 <%= link_to 'New Workout', new_workout_plan_workout_path %>
+<%= link_to 'Back to plans', workout_plans_path %>

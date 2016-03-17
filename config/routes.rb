@@ -8,6 +8,10 @@ Rails.application.routes.draw do
   resources :workout_plans do
     resources :workouts
   end
+
+  resources :workouts do
+    resources :workout_sets
+  end
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
