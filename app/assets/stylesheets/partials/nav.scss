@@ -2,7 +2,7 @@
 // Navigation Menu - Background */
 .navigation {
   // critical sizing and position styles */
-  width: 100%;
+  width: 250px;
   height: 100%;
   position: fixed;
   top: 0;
@@ -86,6 +86,8 @@ label[for="nav-trigger"] {
 .nav-trigger:checked ~ .site-wrap {
   left: 250px;
 }
+
+
 
 body {
   // Without this, the body has excess horizontal scroll when the menu is open */
