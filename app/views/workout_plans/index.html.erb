@@ -3,6 +3,7 @@
   <% @workout_plans.each do |plan| %>
   <h3><%= link_to plan.name, workout_plan_workouts_path(plan) %></h3>
   <p><%= plan.description %></p>
+  <p><%= plan.user_id %></p>
   <% end %>
   <%= link_to 'New Workout Plan', new_workout_plan_path %>
 </div>

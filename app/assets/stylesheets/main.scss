@@ -10,9 +10,10 @@ body {
 
 .container {
   width: 100%;
-  padding-top: 75px;
 }
-
+.content-container {
+  padding-top: 100px;
+}
 .hero {
   height: 100vh;
   background: image-url('running.jpg');

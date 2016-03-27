@@ -1,4 +1,6 @@
 class WorkoutPlansController < ApplicationController
+  before_action :require_user, except: [:show, :index]
+
   def index
     @workout_plans = WorkoutPlan.all
   end
@@ -13,6 +15,8 @@ class WorkoutPlansController < ApplicationController
 
   def create
     @workout_plan = WorkoutPlan.new(workout_plan_params)
+    @workout_plan.user = current_user
+
     if @workout_plan.save
       flash[:success] = 'Your Workout Plan Was created'
       redirect_to workout_plans_path

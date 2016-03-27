@@ -10,12 +10,14 @@
 <body>
 <div class="site-wrap">
   <%= render :partial => "partials/nav" %>
-  <% flash.each do |message_type, message| %>
-    <%= message %>
-  <% end %>
-  <!-- <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p> -->
-  <%= yield %>
+  <div class="content-container">
+    <% flash.each do |message_type, message| %>
+      <%= message %>
+    <% end %>
+    <!-- <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p> -->
+    <%= yield %>
+  </div>
 </div>
 
 </body>
