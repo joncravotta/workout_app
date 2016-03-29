@@ -1,9 +1,12 @@
 <div class="container">
   <h1>Workout plans</h1>
   <% @workout_plans.each do |plan| %>
-  <h3><%= link_to plan.name, workout_plan_workouts_path(plan) %></h3>
-  <p><%= plan.description %></p>
-  <p><%= plan.user_id %></p>
+    <h3><%= link_to plan.name, workout_plan_workouts_path(plan) %></h3>
+    <p><%= plan.description %></p>
+    <p><%= plan.user_id %></p>
+    <%= link_to follow_workout_plan_path(plan, follow: true), method: :post do %>
+      Follow
+    <% end %>
   <% end %>
   <%= link_to 'New Workout Plan', new_workout_plan_path %>
 </div>

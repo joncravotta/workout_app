@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   root 'home#index'
 
   resources :workout_plans do
+    member do
+      post 'follow'
+    end
     resources :workouts
   end
 
