@@ -1,0 +1,14 @@
+<div class="container">
+  <h1>Your plans</h1>
+  <% if @following.length < 1 %>
+    <p>You arent following any plans</p>
+    <%= link_to 'Follow Plan', workout_plans_path %>
+  <% else %>
+    <% @following.each do |follow| %>
+      <h3><%= follow.workout_plan.name %></h3>
+      <p><%= follow.workout_plan.summary %></p>
+      <p><%= follow.workout_plan.description %></p>
+      <hr />
+    <% end %>
+  <% end %>
+</div>
