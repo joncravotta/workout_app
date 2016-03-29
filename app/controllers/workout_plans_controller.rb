@@ -27,12 +27,25 @@ class WorkoutPlansController < ApplicationController
 
   def follow
     @workout_plan = WorkoutPlan.find(params[:id])
-    follow = Follow.create(follow: params[:follow], user: current_user, workout_plan: @workout_plan)
-    if follow.valid?
-      flash[:success] = "Your selection was successfull"
+    if Follow.where(user: current_user, workout_plan: @workout_plan).present?
+      flash[:danger] = "You are already following this plan"
       redirect_to :back  # send suser back to where they were came from
     else
-      flash[:danger] = "Your already following this workout plan"
+      Follow.create(follow: params[:follow], user: current_user, workout_plan: @workout_plan)
+      flash[:success] = "You are now following this plan"
+      redirect_to :back  # send suser back to where they were came from
+    end
+  end
+# if Business.where(:user_id => current_user.id).present?
+# if Business.exists?(user_id: current_user.id)
+  def delete_follow
+    @follow = Follow.find(params[:id])
+    follow = @follow.delete
+    if follow
+      flash[:success] = "You have unfollowed this plan"
+      redirect_to :back  # send suser back to where they were came from
+    else
+      flash[:danger] = "Your update could not be completed"
       redirect_to :back  # send suser back to where they were came from
     end
   end

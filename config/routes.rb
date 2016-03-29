@@ -5,10 +5,12 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'home#index'
+  get 'home/profile' => 'home#profile'
 
   resources :workout_plans do
     member do
       post 'follow'
+      post 'delete_follow'
     end
     resources :workouts
   end
