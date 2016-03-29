@@ -25,6 +25,18 @@ class WorkoutPlansController < ApplicationController
     end
   end
 
+  def follow
+    @workout_plan = WorkoutPlan.find(params[:id])
+    follow = Follow.create(follow: params[:follow], user: current_user, workout_plan: @workout_plan)
+    if follow.valid?
+      flash[:success] = "Your selection was successfull"
+      redirect_to :back  # send suser back to where they were came from
+    else
+      flash[:danger] = "Your already following this workout plan"
+      redirect_to :back  # send suser back to where they were came from
+    end
+  end
+
   private
 
   def workout_plan_params

@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160327145056) do
+ActiveRecord::Schema.define(version: 20160329012149) do
+
+  create_table "follows", force: :cascade do |t|
+    t.boolean  "follow"
+    t.integer  "user_id"
+    t.integer  "workout_plan_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
