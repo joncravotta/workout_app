@@ -8,6 +8,9 @@
       <h3><%= follow.workout_plan.name %></h3>
       <p><%= follow.workout_plan.summary %></p>
       <p><%= follow.workout_plan.description %></p>
+      <%= link_to delete_follow_workout_plan_path(follow.id), method: :post do %>
+        unfollow
+      <% end %>
       <hr />
     <% end %>
   <% end %>

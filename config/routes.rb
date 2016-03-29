@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :workout_plans do
     member do
       post 'follow'
+      post 'delete_follow'
     end
     resources :workouts
   end
