@@ -1,3 +1,16 @@
 // Place all the styles related to the WorkoutPlans controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.plan-container {
+  background-color: pink;
+  width: 100%;
+
+  @include display(flex);
+  @include flex-direction(row) ;
+}
+
+.plan-image {
+  height: 100%;
+  width: 100px;
+  background-color: #ccc;
+}

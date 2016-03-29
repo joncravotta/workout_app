@@ -5,13 +5,19 @@
     <%= link_to 'Follow Plan', workout_plans_path %>
   <% else %>
     <% @following.each do |follow| %>
-      <h3><%= follow.workout_plan.name %></h3>
-      <p><%= follow.workout_plan.summary %></p>
-      <p><%= follow.workout_plan.description %></p>
-      <%= link_to delete_follow_workout_plan_path(follow.id), method: :post do %>
-        unfollow
-      <% end %>
-      <hr />
+    <div class="plan-container">
+      <div class="plan-image">
+
+      </div>
+      <div class="plan-content">
+        <h3><%= follow.workout_plan.name %></h3>
+        <p><%= follow.workout_plan.summary %></p>
+        <p><%= follow.workout_plan.description %></p>
+        <%= link_to delete_follow_workout_plan_path(follow.id), method: :post do %>
+          unfollow
+        <% end %>
+      </div>
+    </div>
     <% end %>
   <% end %>
 </div>
