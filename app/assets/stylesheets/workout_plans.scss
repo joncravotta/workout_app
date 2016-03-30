@@ -1,16 +1,100 @@
-// Place all the styles related to the WorkoutPlans controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-.plan-container {
-  background-color: pink;
-  width: 100%;
-
+.plans-container {
   @include display(flex);
-  @include flex-direction(row) ;
+  @include align-items(center);
+  @include justify-content(space-around);
+}
+
+.split-container {
+  width: 45%;
+  @include display(flex);
+  @include justify-content(center);
+  @include flex-direction(column);
+}
+
+.plan-container {
+  margin-bottom: 25px;
+  min-height: 200px;
+  @include display(flex);
+  @include flex-direction(row);
+  border: 2px solid $secondary;
 }
 
 .plan-image {
-  height: 100%;
-  width: 100px;
-  background-color: #ccc;
+  width: 35%;
+  min-height: 100%;
+  background-color: #fff;
+  border-right: 2px solid $secondary;
+
+  img {
+    width: 100%;
+  }
+}
+
+.plan-content {
+  @include display(flex);
+  @include flex-direction(column);
+  width: 100%;
+}
+
+.plan-description {
+  min-height: 110px;
+  padding: 25px;
+}
+
+.plan-cta {
+  @include display(flex);
+  @include align-items(center);
+  height: 40px;
+  border-top: 2px solid $secondary;
+
+  .plan-title {
+    width: 80%;
+    padding-left: 25px;
+    @include primary-font(20px);
+
+    a {
+      color: $midnight;
+      text-decoration: none;
+    }
+  }
+
+  .plan-follow-button {
+    background-color: $primary;
+    width: 20%;
+    height: 100%;
+    @include display(flex);
+    @include align-items(center);
+    @include justify-content(center);
+    @include primary-font(18px);
+    color: white;
+    text-decoration: none;
+  }
+}
+
+@media (max-width: 800px) {
+  .plans-container {
+    @include flex-direction(column);
+  }
+
+  .plan-container {
+    @include flex-direction(column);
+  }
+
+  .plan-image {
+    width: 100%;
+    height: 225px;
+    background-color: #ccc;
+  }
+
+  .split-container {
+    width: 100%;
+  }
+.plan-cta{
+  .plan-title {
+    padding-left: 10px;
+  }
+  .plan-follow-button {
+    width: 30%;
+  }
+}
 }
