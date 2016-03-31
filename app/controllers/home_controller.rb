@@ -3,6 +3,6 @@ class HomeController < ApplicationController
   end
 
   def profile
-    @following = Follow.where(user: current_user.id)
+    @following = Follow.where(user: current_user.id).reverse
   end
 end
