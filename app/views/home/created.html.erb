@@ -1,0 +1,28 @@
+<div class="container plans-container">
+  <div class="split-container">
+    <div class="crumbs-link">
+      <%= link_to 'Following', home_profile_path %> | <%= link_to 'Created', home_created_path, class: 'crumbs-active' %>
+    </div>
+    <h1 class="section-title">Your created plans</h1>
+    <% if @workout_plans.length < 1 %>
+      <p>You arent following any plans</p>
+      <%= link_to 'Follow Plan', workout_plans_path %>
+    <% else %>
+      <% @workout_plans.each do |plan| %>
+        <div class="plan-container">
+          <div class="plan-image"></div>
+          <div class="plan-content">
+            <div class="plan-description">
+              <p><%= plan.description %></p>
+            </div>
+            <div class="plan-cta">
+              <span class="plan-title"><%= link_to plan.name, workout_plan_path(plan) %></span>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="split-container">
+  </div>
+</div>

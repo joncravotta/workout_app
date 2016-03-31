@@ -1,5 +1,8 @@
 <div class="container plans-container">
   <div class="split-container">
+    <div class="crumbs-link">
+      <%= link_to 'Following', home_profile_path, class: 'crumbs-active' %> | <%= link_to 'Created', home_created_path %>
+    </div>
     <h1 class="section-title">Your plans</h1>
     <% if @following.length < 1 %>
       <p>You arent following any plans</p>

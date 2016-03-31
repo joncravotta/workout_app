@@ -28,3 +28,18 @@ body {
   text-decoration: underline;
   // border-bottom: 3px solid $midnight;
 }
+
+.crumbs-link {
+  @include primary-font(18);
+  color: $secondary;
+
+  .crumbs-active {
+    color: $primary;
+    text-decoration: underline;
+  }
+
+  a {
+    color: $secondary;
+    text-decoration: none;
+  }
+}
