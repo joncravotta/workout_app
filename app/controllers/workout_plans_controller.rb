@@ -2,7 +2,7 @@ class WorkoutPlansController < ApplicationController
   before_action :require_user, except: [:show, :index]
 
   def index
-    @workout_plans = WorkoutPlan.all
+    @workout_plans = WorkoutPlan.all.reverse
   end
 
   def show
