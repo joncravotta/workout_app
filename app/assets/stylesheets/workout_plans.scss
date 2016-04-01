@@ -1,13 +1,11 @@
 .plans-container {
   @include display(flex);
-  @include align-items(center);
   @include justify-content(space-around);
 }
 
 .split-container {
   width: 45%;
   @include display(flex);
-  @include justify-content(center);
   @include flex-direction(column);
 }
 
@@ -78,7 +76,7 @@
     background-color: $secondary;
 
     &:hover {
-      background-color: #ccc;
+      background-color: $secondary;
     }
   }
 }
