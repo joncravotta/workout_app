@@ -9,7 +9,12 @@
   padding: 25px;
   margin-bottom: 25px;
 
+  &:hover {
+    border-left: 6px solid $primary;
+  }
+
   .workout-day {
     width: 30%;
   }
+
 }
