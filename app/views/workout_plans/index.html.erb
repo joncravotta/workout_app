@@ -25,7 +25,7 @@
   </div>
 
   <div class="split-container">
-    <h1 class="section-title">Newest</h1>
+    <h1 class="section-title">Most Popular</h1>
     <% @workout_plans.each do |plan| %>
       <div class="plan-container">
         <div class="plan-image">
@@ -36,11 +36,13 @@
           </div>
           <div class="plan-cta">
             <span class="plan-title"><%= link_to plan.name, workout_plan_workouts_path(plan) %></span>
-
+            <% if Follow.where(user: current_user, workout_plan: plan).present? %>
+              <span class="plan-follow-button unfollow-button">Following</span>
+            <% else %>
               <%= link_to follow_workout_plan_path(plan, follow: true), class: 'plan-follow-button', method: :post do %>
                 Follow
               <% end %>
-
+            <% end %>
           </div>
         </div>
       </div>

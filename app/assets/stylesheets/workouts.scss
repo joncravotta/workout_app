@@ -1,3 +1,15 @@
-// Place all the styles related to the workouts controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.workout-day-box {
+  @include primary-font(22px);
+  @include display(flex);
+  @include flex-direction(row);
+  border-top: 1px solid $secondary;
+  border-right: 1px solid $secondary;
+  border-bottom: 1px solid $secondary;
+  border-left: 5px solid $primary;
+  padding: 25px;
+  margin-bottom: 25px;
+
+  .workout-day {
+    width: 30%;
+  }
+}

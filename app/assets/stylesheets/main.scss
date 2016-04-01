@@ -1,8 +1,11 @@
-@import 'helpers/*',
-        'partials/*',
-        'workout_plans.scss';
+@import 'helpers/*', 'partials/*', 'workout_plans', 'workouts';
+
 body {
   margin: 0;
+}
+
+a {
+  text-decoration: none;
 }
 
 .site-wrap {
@@ -12,9 +15,11 @@ body {
 .container {
   width: 100%;
 }
+
 .content-container {
   padding: 100px 25px 25px;
 }
+
 .hero {
   height: 100vh;
   background: image-url('running.jpg');
@@ -42,4 +47,28 @@ body {
     color: $secondary;
     text-decoration: none;
   }
+}
+
+.primary-button {
+  @include primary-font(18px);
+  background-color: $primary;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  padding: 10px 0;
+  width: 180px;
+
+  &:hover {
+    background-color: rgba(0, 222, 97, 0.8);
+  }
+}
+
+.secondary-button-div {
+  @include primary-font(18px);
+  background-color: $secondary;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  padding: 10px 0;
+  width: 180px;
 }
