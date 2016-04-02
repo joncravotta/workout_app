@@ -25,6 +25,13 @@ class WorkoutPlansController < ApplicationController
     end
   end
 
+  def destroy
+    WorkoutPlan.find(params[:id]).destroy
+    Follow.where(workout_plan: params[:id]).destroy_all
+    flash[:success] = "Successfully deleted"
+    redirect_to home_created_path
+  end
+
   def follow
     @workout_plan = WorkoutPlan.find(params[:id])
     if Follow.where(user: current_user, workout_plan: @workout_plan).present?
