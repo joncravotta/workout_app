@@ -35,8 +35,14 @@
 }
 
 .plan-description {
-  min-height: 110px;
+  @include secondary-font(15px);
   padding: 25px;
+}
+
+.plan-stats {
+  @include primary-font(15px);
+  padding: 0 0 10px 25px;
+  color: $primary;
 }
 
 .plan-cta {

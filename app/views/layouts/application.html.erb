@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>WorkoutApp</title>
+  <title>ChiCho</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -14,7 +14,7 @@
     <% flash.each do |message_type, message| %>
       <div class="notifications">
         <span class="notification-message"><%= message %></span>
-        <span class="close-notification">X</span>
+        <span class="close-notification">╳</span>
       </div>
     <% end %>
     <!-- <p class="notice"><%= notice %></p>
