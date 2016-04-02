@@ -2,8 +2,14 @@
   <div class="split-container">
     <span class="section-title"><%= @workout_plan.name %></span>
     <div class="workout-image"></div>
-    <p><%= @workout_plan.summary %></p>
-    <p><%= @workout_plan.description %></p>
+    <span class="workout-summary"><%= @workout_plan.summary %></span>
+    <span class="workout-description"><%= @workout_plan.description %></span>
+    <% follower_amount = Follow.where(workout_plan: @workout_plan).length %>
+    <% if follower_amount == 1 %>
+      <span class="workout-stats"><%= follower_amount %> Follower</span>
+    <% else %>
+      <span class="workout-stats"><%= follower_amount%> Followers</span>
+    <% end %>
     <% if Follow.where(user: current_user, workout_plan: @workout_plan).present? %>
       <div class="secondary-button-div">
         Following

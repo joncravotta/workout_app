@@ -51,14 +51,16 @@ a {
 }
 
 .primary-button {
-  @include primary-font(18px);
+  @include primary-font(15px);
   background-color: $primary;
   color: white;
   text-decoration: none;
   text-align: center;
-  padding: 10px 0;
+  padding: 15px;
   width: 180px;
   margin-bottom: 25px;
+  border: none;
+  cursor: pointer;
 
   &:hover {
     background-color: rgba(0, 222, 97, 0.8);

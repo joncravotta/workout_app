@@ -24,3 +24,20 @@
   width: 100%;
   height: 200px;
 }
+
+.workout-summary {
+  @include secondary-font(15px);
+  padding: 10px 0;
+  font-style: italic;
+  color: $secondary;
+}
+
+.workout-description {
+  @include secondary-font(15px);
+}
+
+.workout-stats {
+  @include primary-font(15px);
+  color: $primary;
+  padding: 10px 0;
+}
