@@ -14,7 +14,6 @@ a {
 
 .container {
   width: 100%;
-  margin-top: 25px;
 }
 
 .content-container {
@@ -74,25 +73,4 @@ a {
   padding: 10px 0;
   width: 180px;
   margin-bottom: 25px;
-}
-
-.notifications {
-  @include display(flex);
-  @include align-items(center);
-  @include justify-content(space-between);
-  @include primary-font(18px);
-  border: 1px solid #ccc;
-  width: 95%;
-  margin: 0 auto;
-  height: 50px;
-  text-align: center;
-
-  .notification-message {
-    padding-left: 25px;
-  }
-
-  .close-notification {
-    cursor: pointer;
-    padding-right: 25px;
-  }
 }

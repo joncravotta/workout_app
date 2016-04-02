@@ -1,7 +1,6 @@
 <div class="container plans-container">
   <div class="split-container">
     <span class="section-title"><%= @workout_plan.name %></span>
-    <div class="workout-image"></div>
     <p><%= @workout_plan.summary %></p>
     <p><%= @workout_plan.description %></p>
     <% if Follow.where(user: current_user, workout_plan: @workout_plan).present? %>

@@ -12,10 +12,7 @@
   <%= render :partial => "partials/nav" %>
   <div class="content-container">
     <% flash.each do |message_type, message| %>
-      <div class="notifications">
-        <span class="notification-message"><%= message %></span>
-        <span class="close-notification">X</span>
-      </div>
+      <%= message %>
     <% end %>
     <!-- <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p> -->

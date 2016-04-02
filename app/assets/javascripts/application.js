@@ -14,13 +14,3 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-
-$(document).ready(function() {
-  $('.close-notification').click(function(){
-    $('.notifications').hide();
-    console.log("whats up homie");
-  });
-});
-
-
-console.log('init');
