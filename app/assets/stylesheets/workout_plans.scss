@@ -79,10 +79,11 @@
   }
 
   .unfollow-button {
-    background-color: $secondary;
+    background-color: white;
+    color: $midnight;
 
     &:hover {
-      background-color: $secondary;
+      background-color: white;
     }
   }
 }
