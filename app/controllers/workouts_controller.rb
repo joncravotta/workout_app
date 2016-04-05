@@ -1,4 +1,7 @@
 class WorkoutsController < ApplicationController
+  before_action :require_user, except: [:show, :index]
+  before_action :require_same_user, only: [:edit, :update]
+
   def index
     @workout = Workout.where(workout_plan_id: params[:workout_plan_id])
     @workout_plan = WorkoutPlan.find(params[:workout_plan_id])
@@ -25,11 +28,11 @@ class WorkoutsController < ApplicationController
   end
 
   def edit
+    @workout = Workout.find(params[:id])
   end
 
   def update
-    workout_plan = WorkoutPlan.find(params[:workout_plan_id])
-    @workout = workout_plan.workouts(workout_params)
+    @workout = Workout.find(params[:id])
     if @workout.update(workout_params)
       flash[:success] = 'Your Workout was updated successfully'
       redirect_to workout_plan_workouts_path(@workout.workout_plan)

@@ -32,6 +32,7 @@
           </div>
         </div>
       <% end %>
+      By: <%= workout_day.workout_plan.user.email %>
       <% if current_user == workout_day.workout_plan.user %>
         <%= link_to edit_workout_path(workout_day), class: 'plan-follow-button' do %>
           Edit
@@ -40,5 +41,6 @@
     <% end %>
   </div>
 </div>
-
-<%= link_to 'New Workout', new_workout_plan_workout_path %>
+<% if current_user == @workout_plan.user %>
+  <%= link_to 'New Workout', new_workout_plan_workout_path %>
+<% end %>

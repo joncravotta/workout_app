@@ -1,5 +1,5 @@
 <h1>Creating workouts for this particular plan</h1>
-<%= form_for ([@workout.workout_plan, @workout]) do |f| %>
+<%= form_for @workout do |f| %>
     <%= f.label :name %>
     <%= f.text_field :name %>
 
