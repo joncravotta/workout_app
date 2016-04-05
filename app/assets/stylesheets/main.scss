@@ -67,6 +67,25 @@ a {
   }
 }
 
+.secondary-button {
+  @include primary-font(15px);
+  background-color: $secondary;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  padding: 15px;
+  width: 180px;
+  margin-bottom: 25px;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #ccc;
+  }
+}
+
+
+
 .secondary-button-div {
   @include primary-font(18px);
   background-color: $secondary;
