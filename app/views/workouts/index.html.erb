@@ -4,6 +4,7 @@
     <div class="workout-image"></div>
     <span class="workout-summary"><%= @workout_plan.summary %></span>
     <span class="workout-description"><%= @workout_plan.description %></span>
+    <span class="workout-summary">By: <%= @workout_plan.user.email %></span>
     <% follower_amount = Follow.where(workout_plan: @workout_plan).length %>
     <% if follower_amount == 1 %>
       <span class="workout-stats"><%= follower_amount %> Follower</span>
@@ -21,6 +22,13 @@
     <% end %>
   </div>
   <div class="split-container">
+    <% workout_count = Workout.where(workout_plan: @workout_plan)%>
+    <% if workout_count.length == 1 %>
+      <span class="workout-stats"><%= workout_count.length %> Workout</span>
+    <% else %>
+      <span class="workout-stats"><%= workout_count.length %> Workouts</span>
+    <% end %>
+    <!-- this should be in a facade -->
     <% @workout.each do |workout_day| %>
       <%= link_to workout_workout_sets_path(workout_day) do %>
         <div class="workout-day-box">
@@ -33,13 +41,13 @@
         </div>
       <% end %>
       <% if current_user == workout_day.workout_plan.user %>
-        <%= link_to edit_workout_path(workout_day), class: 'plan-follow-button' do %>
+        <%= link_to edit_workout_path(workout_day), class: 'workout-edit' do %>
           Edit
         <% end %>
       <% end %>
     <% end %>
     <% if current_user == @workout_plan.user %>
-      <%= link_to new_workout_plan_workout_path, class: 'secondary-button' do %>
+      <%= link_to new_workout_plan_workout_path, class: 'secondary-button margin-top-25px' do %>
         New Workout
       <% end %>
     <% end %>

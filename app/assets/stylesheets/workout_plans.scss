@@ -45,6 +45,12 @@
   color: $primary;
 }
 
+.plan-creator {
+  @include primary-font(15px);
+  padding: 0 0 10px 25px;
+  color: $secondary;
+}
+
 .plan-cta {
   @include display(flex);
   @include align-items(center);
