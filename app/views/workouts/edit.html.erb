@@ -1,12 +1,24 @@
-<h1>Creating workouts for this particular plan</h1>
-<%= form_for @workout do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-
-    <%= f.label :day %>
-    <%= f.text_field :day %>
-
-  <%= f.label :description %>
-  <%= f.text_area :description, rows: 10 %>
-    <%= f.submit %>
-<% end %>
+<div class="form">
+  <%= form_for @workout do |f| %>
+  <h1 class="section-title">Creating workouts for this particular plan</h1>
+  <div class="form-first-row">
+    <div class="form-label-group">
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+    <div class="form-label-group">
+      <%= f.label :day %>
+      <%= f.text_field :day %>
+    </div>
+  </div>
+  <div class="form-second-row">
+    <div class="form-label-group">
+      <%= f.label :description %>
+      <%= f.text_area :description, rows: 10 %>
+    </div>
+  </div>
+  <div class="form-submission">
+    <%= f.submit class: 'primary-button' %>
+  </div>
+  <% end %>
+</div>
