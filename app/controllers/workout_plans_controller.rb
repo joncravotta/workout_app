@@ -1,5 +1,6 @@
 class WorkoutPlansController < ApplicationController
   before_action :require_user, except: [:show, :index]
+  before_action :require_same_user, only: [:edit, :update]
 
   def index
     @workout_plans = WorkoutPlan.all.reverse
@@ -22,6 +23,18 @@ class WorkoutPlansController < ApplicationController
       redirect_to workout_plans_path
     else
       render :new
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    if @workout_plan.update(workout_plan_params)
+      flash[:success] = 'Your Workout Plan was updated successfully'
+      redirect_to workout_plan_workouts_path(@workout_plan)
+    else
+      render :edit
     end
   end
 
@@ -61,5 +74,13 @@ class WorkoutPlansController < ApplicationController
 
   def workout_plan_params
     params.require(:workout_plan).permit(:name, :description, :summary)
+  end
+
+  def require_same_user
+    @workout_plan = WorkoutPlan.find(params[:id])
+    if current_user != @workout_plan.user
+      flash[:danger] = 'You can only edit your own workout plans'
+      redirect_to workout_plans_path
+    end
   end
 end

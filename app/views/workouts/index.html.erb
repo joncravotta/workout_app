@@ -21,19 +21,26 @@
     <% end %>
   </div>
   <div class="split-container">
-    <% @workout.each do |f| %>
-    <%= link_to workout_workout_sets_path(f) do %>
-      <div class="workout-day-box">
-        <div class="workout-day">
-          Day <%= f.day %>
+    <% @workout.each do |workout_day| %>
+      <%= link_to workout_workout_sets_path(workout_day) do %>
+        <div class="workout-day-box">
+          <div class="workout-day">
+            Day <%= workout_day.day %>
+          </div>
+          <div class="workout-name">
+            <%= workout_day.name %>
+          </div>
         </div>
-        <div class="workout-name">
-          <%= f.name %>
-        </div>
-      </div>
-    <% end %>
+      <% end %>
+      By: <%= workout_day.workout_plan.user.email %>
+      <% if current_user == workout_day.workout_plan.user %>
+        <%= link_to edit_workout_path(workout_day), class: 'plan-follow-button' do %>
+          Edit
+        <% end %>
+      <% end %>
     <% end %>
   </div>
 </div>
-
-<%= link_to 'New Workout', new_workout_plan_workout_path %>
+<% if current_user == @workout_plan.user %>
+  <%= link_to 'New Workout', new_workout_plan_workout_path %>
+<% end %>

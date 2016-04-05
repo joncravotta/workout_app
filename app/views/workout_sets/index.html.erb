@@ -7,13 +7,21 @@
   <%= @workout.description %>
 </p>
 <hr />
-<% @workout_set.each do |f| %>
-<%=  %>
-  <%= f.name %><br />
-  <%= f.rep_type %><br />
-  <%= f.amount %><br />
-  <%= f.description %>
+<% @workout_set.each do |set| %>
+  <%= set.name %><br />
+  <%= set.rep_type %><br />
+  <%= set.amount %><br />
+  <%= set.description %>
+  <%= set.workout.workout_plan.user.email %>
+  <br />
+  <% if current_user == set.workout.workout_plan.user %>
+    <%= link_to  edit_workout_workout_set_path(set.workout, set), class: 'plan-follow-button' do %>
+      Edit
+    <% end %>
+  <% end %>
 <hr />
 <% end %>
-<%= link_to 'New Set', new_workout_workout_set_path %>
+<% if current_user == @workout.workout_plan.user %>
+  <%= link_to 'New Set', new_workout_workout_set_path %>
+<% end %>
 <%= link_to 'Back to workouts', workout_plan_workouts_path(@workout.workout_plan_id) %>
