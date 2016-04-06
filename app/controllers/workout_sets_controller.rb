@@ -38,6 +38,13 @@ class WorkoutSetsController < ApplicationController
     end
   end
 
+  def complete
+    @workout_set = WorkoutSet.find(params[:id])
+    CompletedSet.create(completed: params[:completed], user: current_user, workout_set: @workout_set)
+    flash[:success] = "You have completed the #{@workout_set.name} set"
+    redirect_to workout_workout_sets_path(@workout_set.workout)
+  end
+
   private
 
   def workout_set_params

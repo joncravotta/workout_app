@@ -14,6 +14,10 @@
   <%= set.description %>
   <%= set.workout.workout_plan.user.email %>
   <br />
+  <%= link_to complete_workout_workout_set_path(set.workout, set, completed: true), class: 'plan-follow-button', method: :post do %>
+                complete
+  <% end %>
+  <br />
   <% if current_user == set.workout.workout_plan.user %>
     <%= link_to  edit_workout_workout_set_path(set.workout, set), class: 'plan-follow-button' do %>
       Edit

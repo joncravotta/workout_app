@@ -17,7 +17,11 @@ Rails.application.routes.draw do
   end
 
   resources :workouts do
-    resources :workout_sets
+    resources :workout_sets do
+      member do
+        post 'complete'
+      end
+    end
   end
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
