@@ -9,6 +9,9 @@
           <div class="plan-description">
             <span><%= plan.description %></span>
           </div>
+          <div class="plan-creator">
+            By: <%= plan.user.email %>
+          </div>
           <div class="plan-stats">
             <% follower_amount = Follow.where(workout_plan: plan).length %>
             <% if follower_amount == 1 %>
@@ -31,9 +34,8 @@
       </div>
     <% end %>
   </div>
-
   <div class="split-container">
-    <h1 class="section-title">New Plans</h1>
+    <h1 class="section-title">Most Popular</h1>
     <% @workout_plans.each do |plan| %>
       <div class="plan-container">
         <div class="plan-image">
@@ -41,6 +43,9 @@
         <div class="plan-content">
           <div class="plan-description">
             <span><%= plan.description %></span>
+          </div>
+          <div class="plan-creator">
+            By: <%= plan.user.email %>
           </div>
           <div class="plan-stats">
             <% follower_amount = Follow.where(workout_plan: plan).length %>
