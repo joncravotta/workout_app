@@ -1,36 +1,31 @@
-<div class="container">
+<div class="container set-container">
   <div class="set-header">
     <span class="set-workout-name"><%= @workout.name %></span>
-    <span class="set-workout-info">Day
-      <%= @workout.day %>
-      | Set 2 of 5</span>
+    <span class="set-workout-info">Day <%= @workout.day %>| Set 2 of 5</span>
   </div>
   <div class="set-info-container">
     <% @workout_set.each do |set| %>
-    <span class="set-info-amount"><%= set.amount %></span>
-    <span class="set-info-name"><%= set.name %></span>
-    <span class="set-info-desc"><%= set.description %></span>
-
-    <% if CompletedSet.where(user: current_user, workout_set: set).present? %>
-    completed
-  <% else %>
-    <%= link_to complete_workout_workout_set_path(set.workout, set, completed: true), class: 'plan-follow-button', method: :post do %>
-    complete
-    <% end %>
-    <% end %>
-    <br/>
-    <% if current_user == set.workout.workout_plan.user %>
-    <%= link_to  edit_workout_workout_set_path(set.workout, set), class: 'plan-follow-button' do %>
-    Edit
-    <% end %>
-    <% end %>
-    <hr/>
+      <span class="set-info-amount"><%= set.amount %></span>
+      <span class="set-info-name"><%= set.name %></span>
+      <span class="set-info-desc"><%= set.description %></span>
+      <% if CompletedSet.where(user: current_user, workout_set: set).present? %>
+        <div class="complete-button completed">
+          Completed
+        </div>
+      <% else %>
+        <%= link_to complete_workout_workout_set_path(set.workout, set, completed: true), class: 'complete-button', method: :post do %>
+          Next
+        <% end %>
+      <% end %>
+      <% if current_user == set.workout.workout_plan.user %>
+        <%= link_to  edit_workout_workout_set_path(set.workout, set), class: 'plan-follow-button' do %>
+          Edit
+        <% end %>
+      <% end %>
     <% end %>
     <% if current_user == @workout.workout_plan.user %>
-    <%= link_to 'New Set', new_workout_workout_set_path %>
+      <%= link_to 'New Set', new_workout_workout_set_path %>
     <% end %>
     <%= link_to 'Back to workouts', workout_plan_workouts_path(@workout.workout_plan_id) %>
   </div>
-</p>
-<hr/>
 </div>

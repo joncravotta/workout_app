@@ -1,24 +1,26 @@
-<div class="form">
-  <%= form_for @workout_plan do |f| %>
-    <h1 class="section-title">Create Workout Plans</h1>
-    <div class="form-first-row">
-      <div class="form-label-group">
-        <%= f.label :name %>
-        <%= f.text_field :name %>
+<div class="content-container">
+  <div class="form">
+    <%= form_for @workout_plan do |f| %>
+      <h1 class="section-title">Create Workout Plans</h1>
+      <div class="form-first-row">
+        <div class="form-label-group">
+          <%= f.label :name %>
+          <%= f.text_field :name %>
+        </div>
+        <div class="form-label-group">
+          <%= f.label :summary %>
+          <%= f.text_field :summary %>
+        </div>
       </div>
-      <div class="form-label-group">
-        <%= f.label :summary %>
-        <%= f.text_field :summary %>
+      <div class="form-second-row">
+        <div class="form-label-group">
+          <%= f.label :description %>
+          <%= f.text_area :description, rows: 12 %>
+        </div>
       </div>
-    </div>
-    <div class="form-second-row">
-      <div class="form-label-group">
-        <%= f.label :description %>
-        <%= f.text_area :description, rows: 12 %>
+      <div class="form-submission">
+        <%= f.submit (@workout_plan.new_record? ? 'Create Workout Plan' : 'Edit Workout Plan'), class: 'primary-button' %>
       </div>
-    </div>
-    <div class="form-submission">
-      <%= f.submit (@workout_plan.new_record? ? 'Create Workout Plan' : 'Edit Workout Plan'), class: 'primary-button' %>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>

@@ -1,3 +1,7 @@
+.set-container {
+  padding-top: 61px;
+}
+
 .set-header {
   width: 100%;
   background-color: $primary;
@@ -25,6 +29,7 @@
   @include justify-content(center);
   @include align-items(center);
   @include flex-direction(column);
+  padding-bottom: 100px;
 }
 
 .set-info-amount {
@@ -42,4 +47,20 @@
   font-style: italic;
   padding: 25px;
   text-align: center;
+}
+
+.complete-button {
+  background-color: $primary;
+  width: 100%;
+  padding: 25px 0;
+  position:fixed;
+  left:0px;
+  bottom:0px;
+  @include primary-font(25px);
+  text-align: center;
+  color: #fff;
+}
+
+.completed {
+  background-color: $secondary;
 }
