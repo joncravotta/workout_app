@@ -1,32 +1,34 @@
-<div class="form">
-  <%= form_for ([@workout_set.workout, @workout_set]) do |f| %>
-  <h1 class="section-title">Edit set for a workout</h1>
-  <div class="form-first-row">
-    <div class="form-label-group">
-      <%= f.label :name %>
-      <%= f.text_field :name %>
+<div class="content-container">
+  <div class="form">
+    <%= form_for ([@workout_set.workout, @workout_set]) do |f| %>
+    <h1 class="section-title">Edit set for a workout</h1>
+    <div class="form-first-row">
+      <div class="form-label-group">
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+      </div>
     </div>
-  </div>
-  <div class="form-first-row">
-    <div class="form-label-group">
-      <%= f.label :rep_type %>
-      <%= f.text_field :rep_type %>
+    <div class="form-first-row">
+      <div class="form-label-group">
+        <%= f.label :rep_type %>
+        <%= f.text_field :rep_type %>
+      </div>
     </div>
-  </div>
-  <div class="form-first-row">
-    <div class="form-label-group">
-      <%= f.label :amount %>
-      <%= f.text_field :amount %>
+    <div class="form-first-row">
+      <div class="form-label-group">
+        <%= f.label :amount %>
+        <%= f.text_field :amount %>
+      </div>
     </div>
-  </div>
-  <div class="form-second-row">
-    <div class="form-label-group">
-      <%= f.label :description %>
-      <%= f.text_area :description, rows: 10 %>
+    <div class="form-second-row">
+      <div class="form-label-group">
+        <%= f.label :description %>
+        <%= f.text_area :description, rows: 10 %>
+      </div>
     </div>
+    <div class="form-submission">
+      <%= f.submit class: 'primary-button' %>
+    </div>
+    <% end %>
   </div>
-  <div class="form-submission">
-    <%= f.submit class: 'primary-button' %>
-  </div>
-  <% end %>
 </div>

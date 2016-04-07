@@ -1,74 +1,76 @@
-<div class="container plans-container">
-  <div class="split-container">
-    <h1 class="section-title">Most Popular</h1>
-    <% @workout_plans.each do |plan| %>
-      <div class="plan-container">
-        <div class="plan-image">
-        </div>
-        <div class="plan-content">
-          <div class="plan-description">
-            <span><%= plan.description %></span>
+<div class="content-container">
+  <div class="container plans-container">
+    <div class="split-container">
+      <h1 class="section-title">Most Popular</h1>
+      <% @workout_plans.each do |plan| %>
+        <div class="plan-container">
+          <div class="plan-image">
           </div>
-          <div class="plan-creator">
-            By: <%= plan.user.email %>
-          </div>
-          <div class="plan-stats">
-            <% follower_amount = Follow.where(workout_plan: plan).length %>
-            <% if follower_amount == 1 %>
-              <span><%= follower_amount %> Follower</span>
-            <% else %>
-              <span><%= follower_amount%> Followers</span>
-            <% end %>
-          </div>
-          <div class="plan-cta">
-            <span class="plan-title"><%= link_to plan.name, workout_plan_workouts_path(plan) %></span>
-            <% if Follow.where(user: current_user, workout_plan: plan).present? %>
-              <span class="plan-follow-button unfollow-button">Following</span>
-            <% else %>
-              <%= link_to follow_workout_plan_path(plan, follow: true), class: 'plan-follow-button', method: :post do %>
-                Follow
+          <div class="plan-content">
+            <div class="plan-description">
+              <span><%= plan.description %></span>
+            </div>
+            <div class="plan-creator">
+              By: <%= plan.user.email %>
+            </div>
+            <div class="plan-stats">
+              <% follower_amount = Follow.where(workout_plan: plan).length %>
+              <% if follower_amount == 1 %>
+                <span><%= follower_amount %> Follower</span>
+              <% else %>
+                <span><%= follower_amount%> Followers</span>
               <% end %>
-            <% end %>
-          </div>
-        </div>
-      </div>
-    <% end %>
-  </div>
-  <div class="split-container">
-    <h1 class="section-title">Most Popular</h1>
-    <% @workout_plans.each do |plan| %>
-      <div class="plan-container">
-        <div class="plan-image">
-        </div>
-        <div class="plan-content">
-          <div class="plan-description">
-            <span><%= plan.description %></span>
-          </div>
-          <div class="plan-creator">
-            By: <%= plan.user.email %>
-          </div>
-          <div class="plan-stats">
-            <% follower_amount = Follow.where(workout_plan: plan).length %>
-            <% if follower_amount == 1 %>
-              <span><%= follower_amount %> Follower</span>
-            <% else %>
-              <span><%= follower_amount%> Followers</span>
-            <% end %>
-          </div>
-          <div class="plan-cta">
-            <span class="plan-title"><%= link_to plan.name, workout_plan_workouts_path(plan) %></span>
-            <% if Follow.where(user: current_user, workout_plan: plan).present? %>
-              <span class="plan-follow-button unfollow-button">Following</span>
-            <% else %>
-              <%= link_to follow_workout_plan_path(plan, follow: true), class: 'plan-follow-button', method: :post do %>
-                Follow
+            </div>
+            <div class="plan-cta">
+              <span class="plan-title"><%= link_to plan.name, workout_plan_workouts_path(plan) %></span>
+              <% if Follow.where(user: current_user, workout_plan: plan).present? %>
+                <span class="plan-follow-button unfollow-button">Following</span>
+              <% else %>
+                <%= link_to follow_workout_plan_path(plan, follow: true), class: 'plan-follow-button', method: :post do %>
+                  Follow
+                <% end %>
               <% end %>
-            <% end %>
+            </div>
           </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
+    <div class="split-container">
+      <h1 class="section-title">Most Popular</h1>
+      <% @workout_plans.each do |plan| %>
+        <div class="plan-container">
+          <div class="plan-image">
+          </div>
+          <div class="plan-content">
+            <div class="plan-description">
+              <span><%= plan.description %></span>
+            </div>
+            <div class="plan-creator">
+              By: <%= plan.user.email %>
+            </div>
+            <div class="plan-stats">
+              <% follower_amount = Follow.where(workout_plan: plan).length %>
+              <% if follower_amount == 1 %>
+                <span><%= follower_amount %> Follower</span>
+              <% else %>
+                <span><%= follower_amount%> Followers</span>
+              <% end %>
+            </div>
+            <div class="plan-cta">
+              <span class="plan-title"><%= link_to plan.name, workout_plan_workouts_path(plan) %></span>
+              <% if Follow.where(user: current_user, workout_plan: plan).present? %>
+                <span class="plan-follow-button unfollow-button">Following</span>
+              <% else %>
+                <%= link_to follow_workout_plan_path(plan, follow: true), class: 'plan-follow-button', method: :post do %>
+                  Follow
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
 
-  <%= link_to 'New Workout Plan', new_workout_plan_path %>
+    <%= link_to 'New Workout Plan', new_workout_plan_path %>

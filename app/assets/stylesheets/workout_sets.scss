@@ -1,3 +1,62 @@
-// Place all the styles related to the WorkoutSets controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.set-header {
+  width: 100%;
+  background-color: $primary;
+  color: white;
+    padding: 25px 0px;
+}
+
+.set-workout-name {
+  @include primary-font(25px);
+  color: white;
+  text-decoration: underline;
+  display: block;
+  margin-bottom: 5px;
+  padding-left: 25px;
+}
+
+.set-workout-info {
+  @include primary-font(18px);
+  color: white;
+  padding-left: 25px;
+}
+
+.set-info-container {
+  @include display(flex);
+  @include justify-content(center);
+  @include align-items(center);
+  @include flex-direction(column);
+  padding-bottom: 100px;
+}
+
+.set-info-amount {
+  @include secondary-font(150px);
+  font-weight: 100;
+}
+
+.set-info-name {
+  @include secondary-font(25px);
+}
+
+.set-info-desc {
+  @include secondary-font(15px);
+  color: $secondary;
+  font-style: italic;
+  padding: 25px;
+  text-align: center;
+}
+
+.complete-button {
+  background-color: $primary;
+  width: 100%;
+  padding: 25px 0;
+  position:fixed;
+  left:0px;
+  bottom:0px;
+  @include primary-font(25px);
+  text-align: center;
+  color: #fff;
+}
+
+.completed {
+  background-color: $secondary;
+}
