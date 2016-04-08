@@ -48,6 +48,8 @@ class WorkoutSetsController < ApplicationController
   def set_intializers
     @workout = Workout.find(params[:workout_id])
     @workout_set = WorkoutSet.where(workout_id: @workout)
+    @workout_plan = WorkoutPlan.find(@workout.workout_plan)
+    @workout_plan_days = Workout.where(workout_plan_id: @workout_plan)
   end
 
   def require_same_user
