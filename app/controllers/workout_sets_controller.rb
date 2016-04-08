@@ -2,9 +2,6 @@ class WorkoutSetsController < ApplicationController
   before_filter :set_intializers, only: [:index]
 
   def index
-    @workout_set_prop = {
-      workout_set: @workout
-    }
   end
 
   def new
