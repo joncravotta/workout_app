@@ -1,11 +1,7 @@
 class WorkoutSetsController < ApplicationController
-  def index
-    @workout_set = WorkoutSet.where(workout_id: params[:workout_id])
-    @workout = Workout.find(params[:workout_id])
-  end
+  before_filter :set_intializers, only: [:index]
 
-  def show
-    @workout = WorkoutSet.find(params[:id])
+  def index
   end
 
   def new
@@ -29,7 +25,6 @@ class WorkoutSetsController < ApplicationController
   end
 
   def update
-    @workout_set = WorkoutSet.find(params[:id])
     if @workout_set.update(workout_set_params)
       flash[:success] = 'Your Workout was updated successfully'
       redirect_to workout_workout_sets_path(@workout_set.workout)
@@ -39,7 +34,6 @@ class WorkoutSetsController < ApplicationController
   end
 
   def complete
-    @workout_set = WorkoutSet.find(params[:id])
     CompletedSet.create(completed: params[:completed], user: current_user, workout_set: @workout_set)
     flash[:success] = "You have completed the #{@workout_set.name} set"
     redirect_to workout_workout_sets_path(@workout_set.workout)
@@ -51,8 +45,12 @@ class WorkoutSetsController < ApplicationController
     params.require(:workout_set).permit(:name, :rep_type, :amount, :description)
   end
 
+  def set_intializers
+    @workout = Workout.find(params[:workout_id])
+    @workout_set = WorkoutSet.where(workout_id: @workout)
+  end
+
   def require_same_user
-    @workout_set = WorkoutSet.find(params[:id])
     workout = Workout.find(@workout_set.workout)
     if current_user != workout.user
       flash[:danger] = 'You can only edit your own workouts'
