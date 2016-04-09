@@ -35,6 +35,7 @@
   border-bottom: 1px solid $secondary;
   border-left: 5px solid $secondary;
   margin-top: 25px;
+  cursor: pointer;
 }
 .set-box-left {
   @include display(flex);
@@ -74,4 +75,71 @@
   color: white;
   max-width: 600px;
   margin: auto;
+}
+
+.overlay-active {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, .92);
+  transition: opacity 500ms;
+  visibility: visible;
+  opacity: 1;
+  @include display(flex);
+  @include align-items(center);
+  @include justify-content(center);
+
+}
+.overlay-inactive {
+visibility: hidden;
+opacity: 0;
+display: none;
+}
+
+.popup {
+  margin:auto;
+  padding: 20px;
+  width: 85%;
+  position: relative;
+  transition: all 5s ease-in-out;
+  max-width: 450px;
+}
+
+.popup-close {
+  font-size: 45px;
+  cursor: pointer;
+}
+
+.popup-content {
+  @include display(flex);
+  @include align-items(center);
+  @include flex-direction(column);
+}
+
+.popup-amount {
+  @include secondary-font(150px);
+  font-weight: lighter;
+  color: #333;
+  margin: 0px;
+}
+
+.popup-reps {
+  @include secondary-font(30px);
+  color: $primary;
+  text-transform: capitalize;
+  padding-bottom: 10px;
+}
+
+.popup-name {
+  @include primary-font(22px);
+}
+
+.popup-description {
+  padding-top: 25px;
+  @include secondary-font(18px);
+  font-style: italic;
+  color: #333;
+  text-align: center;
 }
