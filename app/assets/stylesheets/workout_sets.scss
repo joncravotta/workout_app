@@ -20,43 +20,58 @@
   padding-left: 25px;
 }
 
-.set-info-container {
-  @include display(flex);
-  @include justify-content(center);
-  @include align-items(center);
-  @include flex-direction(column);
-  padding-bottom: 100px;
-}
-
-.set-info-amount {
-  @include secondary-font(150px);
-  font-weight: 100;
-}
-
-.set-info-name {
-  @include secondary-font(25px);
-}
-
-.set-info-desc {
-  @include secondary-font(15px);
-  color: $secondary;
-  font-style: italic;
+.set-box-container {
   padding: 25px;
-  text-align: center;
+  max-width: 600px;
+  margin: auto;
 }
 
-.complete-button {
-  background-color: $primary;
-  width: 100%;
-  padding: 25px 0;
-  position:fixed;
-  left:0px;
-  bottom:0px;
-  @include primary-font(25px);
-  text-align: center;
-  color: #fff;
+.set-box {
+  @include primary-font(22px);
+  @include display(flex);
+  @include flex-direction(row);
+  border-top: 1px solid $secondary;
+  border-right: 1px solid $secondary;
+  border-bottom: 1px solid $secondary;
+  border-left: 5px solid $secondary;
+  margin-top: 25px;
+}
+.set-box-left {
+  @include display(flex);
+  @include flex-direction(row);
+  @include align-items(center);
+  padding: 25px;
+  width: 70%;
 }
 
-.completed {
+.set-amount {
+  font-size: 27px;
+}
+
+.set-name {
+  padding-left: 25px;
+}
+
+.set-complete {
+  @include display(flex);
+  @include align-items(center);
+  @include justify-content(center);
+  font-size: 25px;
+  border-left: 1px solid $secondary;
+  width: 30%;
+  color: $secondary;
+}
+
+.set-button-container {
+  padding: 0 25px 25px;
+}
+
+.set-button {
   background-color: $secondary;
+  padding: 25px 0;
+  text-align: center;
+  @include primary-font(22px);
+  color: white;
+  max-width: 600px;
+  margin: auto;
 }
