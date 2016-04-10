@@ -34,17 +34,17 @@
       }
     }
   }
+  .hamburger {
+    display: none;
+  }
+
+  .hamburger-menu {
+    visibility: hidden;
+    opacity: 0;
+    display: none;
+  }
 }
 
-.hamburger {
-  display: none;
-}
-
-.hamburger-menu {
-  visibility: hidden;
-  opacity: 0;
-  display: none;
-}
 
 @media (max-width: 800px) {
   .nav {
