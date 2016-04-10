@@ -1,6 +1,7 @@
 var WorkoutSet = React.createClass({
   getInitialState: function() {
     return {
+      current_user: this.props.current_user,
       setData: this.props.workout_set,
       workoutData: this.props.workout,
       workoutLength: this.props.workout_set.length,
@@ -41,9 +42,11 @@ var WorkoutSet = React.createClass({
           })}
         </div>
         <div className="set-button-container">
-          <div className={setButton}>
-            Complete
-          </div>
+          <a href={"/workout_plans/" + this.state.workoutData.id + "/workouts"}>
+            <div className={setButton}>
+              Complete
+            </div>
+          </a>
         </div>
       </div>
      );
