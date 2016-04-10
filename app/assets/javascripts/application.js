@@ -21,9 +21,14 @@
 $(document).ready(function() {
   $('.close-notification').click(function(){
     $('.notifications').hide();
-    console.log("whats up homie");
+  });
+  $('.hamburger').click(function(){
+    $('.hamburger-menu').css({"display":"flex","visibility":"visible"});
+    $('.hamburger').hide();
+  });
+
+  $('.hamburger-close').click(function(){
+    $('.hamburger-menu').css({"display":"none","visibility":"hidden"});
+    $('.hamburger').show();
   });
 });
-
-
-console.log('init');

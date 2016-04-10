@@ -11,5 +11,18 @@
     <% end %>
     <%= link_to "Find Workouts", workout_plans_path %>
     <%= link_to "Create Workouts", new_workout_plan_path %>
-  </div>
+    </div>
+    <span class="hamburger">☰</span>
+    <div class="hamburger-menu">
+      <span class="hamburger-close">&times;</span>
+      <%= link_to "Find Workouts", workout_plans_path %>
+      <%= link_to "Create Workouts", new_workout_plan_path %>
+      <% if user_signed_in? %>
+        <%= link_to "Your plans", home_profile_path %>
+        <%= link_to "Log out", destroy_user_session_path, :method => :delete %>
+      <% else %>
+        <%= link_to "Sign up", new_user_registration_path %>
+        <%= link_to "Login", new_user_session_path %>
+      <% end %>
+    </div>
 </div>
