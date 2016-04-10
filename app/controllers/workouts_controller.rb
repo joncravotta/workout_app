@@ -45,11 +45,11 @@ class WorkoutsController < ApplicationController
     @workout = Workout.find(params[:id])
     if CompletedWorkout.where(user: current_user, workout: @workout).present?
       flash[:danger] = "You have already completed this workout"
-      redirect_to :back # send suser back to where they were came from
+      redirect_to workout_plan_workouts_path(@workout.workout_plan) # send suser back to where they were came from
     else
       CompletedWorkout.create(completed: params[:completed], user: current_user, workout: @workout)
       flash[:success] = "You have completed your wokrout."
-      redirect_to workout_plan_workouts_path(@workout)# send suser back to where they were came from
+      redirect_to workout_plan_workouts_path(@workout.workout_plan)# send suser back to where they were came from
     end
   end
 
