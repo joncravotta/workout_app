@@ -2,7 +2,7 @@
   width: 100%;
   background-color: $primary;
   color: white;
-    padding: 25px 0px;
+  padding: 25px 0px;
 }
 
 .set-workout-name {
@@ -16,6 +16,7 @@
 
 .set-workout-info {
   @include primary-font(18px);
+  display: block;
   color: white;
   padding-left: 25px;
 }

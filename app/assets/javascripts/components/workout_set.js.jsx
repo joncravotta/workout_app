@@ -34,7 +34,8 @@ var WorkoutSet = React.createClass({
       <div className="container">
         <div className="set-header">
           <span className="set-workout-name">{this.state.workoutData.name}</span>
-          <span className="set-workout-info">Day {this.state.workoutData.day}: {this.state.workoutLength} Sets</span>
+          <span className="set-workout-info">Day {this.state.workoutData.day}:</span>
+          <span className="set-workout-info">{this.state.completedSetsArr.length} of {this.state.workoutLength} sets completed</span>
         </div>
         <div className="set-box-container">
         {this.state.setData.map(function(set) {
