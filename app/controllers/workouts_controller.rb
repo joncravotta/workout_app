@@ -5,6 +5,7 @@ class WorkoutsController < ApplicationController
   def index
     @workout = Workout.where(workout_plan_id: params[:workout_plan_id])
     @workout_plan = WorkoutPlan.find(params[:workout_plan_id])
+    @completed = CompletedWorkout.where(workout_id: @workout)
   end
 
   def show
@@ -44,11 +45,11 @@ class WorkoutsController < ApplicationController
   def complete
     @workout = Workout.find(params[:id])
     if CompletedWorkout.where(user: current_user, workout: @workout).present?
-      flash[:danger] = "You have already completed this workout"
+      flash[:danger] = "You have already completed #{@workout.name}"
       redirect_to workout_plan_workouts_path(@workout.workout_plan) # send suser back to where they were came from
     else
       CompletedWorkout.create(completed: params[:completed], user: current_user, workout: @workout)
-      flash[:success] = "You have completed your wokrout."
+      flash[:success] = "Completed #{@workout.name}"
       redirect_to workout_plan_workouts_path(@workout.workout_plan)# send suser back to where they were came from
     end
   end

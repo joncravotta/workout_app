@@ -6,16 +6,50 @@
   border-right: 1px solid $secondary;
   border-bottom: 1px solid $secondary;
   border-left: 5px solid $primary;
-  padding: 25px;
-  margin-top: 25px;
+  margin-bottom: 25px;
 
   &:hover {
     border-left: 6px solid $primary;
   }
 
-  .workout-day {
-    width: 30%;
+}
+
+.workout-day-box-uncompleted {
+  border-left: 5px solid $secondary;
+
+  &:hover {
+    border-left: 6px solid $secondary;
   }
+}
+
+.workout-box-left {
+  @include display(flex);
+  @include flex-direction(row);
+  @include align-items(center);
+  padding: 25px;
+  width: 70%;
+}
+
+.workout-box-status {
+  @include display(flex);
+  @include align-items(center);
+  @include justify-content(center);
+  font-size: 25px;
+  border-left: 1px solid $secondary;
+  width: 30%;
+  color: $primary;
+
+  img {
+    width: 30px;
+  }
+}
+
+.workout-box-status-uncompleted {
+  color: $secondary;
+}
+
+.workout-name {
+  padding-left: 25px;
 }
 
 .workout-image {
@@ -39,7 +73,7 @@
 .workout-stats {
   @include primary-font(15px);
   color: $primary;
-  padding: 10px 0;
+  padding: 10px 0 25px;
 }
 
 

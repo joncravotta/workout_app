@@ -23,35 +23,78 @@
       <% end %>
     </div>
     <div class="split-container">
+
       <% workout_count = Workout.where(workout_plan: @workout_plan)%>
-      <% if workout_count.length == 1 %>
-        <span class="workout-stats"><%= workout_count.length %> Workout</span>
-      <% else %>
-        <span class="workout-stats"><%= workout_count.length %> Workouts</span>
-      <% end %>
-      <!-- this should be in a facade -->
+      <span class="workout-stats"><%= workout_count.length %> Workouts</span>
+
       <% @workout.each do |workout_day| %>
-        <%= link_to workout_workout_sets_path(workout_day) do %>
-          <div class="workout-day-box">
-            <div class="workout-day">
-              Day <%= workout_day.day %>
+      <% if Follow.where(user: current_user, workout_plan: @workout_plan).present? %>
+        <!-- Completed workout -->
+        <% if CompletedWorkout.where(user: current_user, workout: workout_day).present? %>
+            <%= link_to workout_workout_sets_path(workout_day) do %>
+              <div class="workout-day-box">
+                <div class="workout-box-left">
+                  <div class="workout-day">
+                    Day <%= workout_day.day %>
+                  </div>
+                  <div class="workout-name">
+                    <%= workout_day.name %>
+                  </div>
+                </div>
+                <div class="workout-box-status">
+                  ✓
+                </div>
+              </div>
+            <% end %>
+          <!-- Uncompleted workout -->
+          <% else %>
+            <%= link_to workout_workout_sets_path(workout_day) do %>
+              <div class="workout-day-box workout-day-box-uncompleted">
+                <div class="workout-box-left">
+                  <div class="workout-day">
+                    Day <%= workout_day.day %>
+                  </div>
+                  <div class="workout-name">
+                    <%= workout_day.name %>
+                  </div>
+                </div>
+                <div class="workout-box-status workout-box-status-uncompleted">
+                  ✓
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        <!-- Not following workout -->
+        <% else %>
+          <div class="workout-day-box workout-day-box-uncompleted">
+            <div class="workout-box-left">
+              <div class="workout-day">
+                Day <%= workout_day.day %>
+              </div>
+              <div class="workout-name">
+                <%= workout_day.name %>
+              </div>
             </div>
-            <div class="workout-name">
-              <%= workout_day.name %>
+            <div class="workout-box-status workout-box-status-uncompleted">
+              <%= image_tag('lock.png') %>
             </div>
           </div>
         <% end %>
+
+
         <% if current_user == workout_day.workout_plan.user %>
           <%= link_to edit_workout_path(workout_day), class: 'workout-edit' do %>
             Edit
           <% end %>
         <% end %>
       <% end %>
+
       <% if current_user == @workout_plan.user %>
         <%= link_to new_workout_plan_workout_path, class: 'secondary-button margin-top-25px' do %>
           New Workout
         <% end %>
       <% end %>
+
     </div>
   </div>
-</div>  
+</div>
