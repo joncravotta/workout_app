@@ -17,6 +17,9 @@ Rails.application.routes.draw do
   end
 
   resources :workouts do
+    member do
+      post 'complete'
+    end
     resources :workout_sets do
       member do
         post 'complete'

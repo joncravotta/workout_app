@@ -1,6 +1,7 @@
 var WorkoutSet = React.createClass({
   getInitialState: function() {
     return {
+      current_user: this.props.current_user,
       setData: this.props.workout_set,
       workoutData: this.props.workout,
       workoutLength: this.props.workout_set.length,
@@ -15,18 +16,18 @@ var WorkoutSet = React.createClass({
     this.setState({completedSetsArr: new_arr});
   },
 
+  handleDisplayComplete: function() {
+    $('.set-button').fadeIn( "slow" );
+  },
+
   render: function() {
     console.log(this.state.setData);
     console.log(this.state.workoutData);
     console.log(this.props);
     console.log(this.state.workoutLength);
     console.log(this.state.completedSetsArr.length );
-    var setButton;
     if (this.state.completedSetsArr.length == this.state.workoutLength){
-      setButton = "set-button set-button-completed";
-    }
-    else {
-      setButton = "set-button";
+      this.handleDisplayComplete();
     }
     var handleSetCompletion = this.handleSetCompletion;
     return (
@@ -39,11 +40,6 @@ var WorkoutSet = React.createClass({
         {this.state.setData.map(function(set) {
           return (<WorkoutSetBox key={set.id} set={set} completeSet={handleSetCompletion}/>);
           })}
-        </div>
-        <div className="set-button-container">
-          <div className={setButton}>
-            Complete
-          </div>
         </div>
       </div>
      );

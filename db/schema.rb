@@ -11,12 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160406013050) do
+ActiveRecord::Schema.define(version: 20160410015636) do
+
+  create_table "complete_workouts", force: :cascade do |t|
+    t.boolean  "completed"
+    t.integer  "user_id"
+    t.integer  "workout_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "completed_sets", force: :cascade do |t|
     t.boolean  "completed"
     t.integer  "user_id"
     t.integer  "workout_set_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "completed_workouts", force: :cascade do |t|
+    t.boolean  "completed"
+    t.integer  "user_id"
+    t.integer  "workout_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
