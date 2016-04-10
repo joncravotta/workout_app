@@ -1,1 +1,12 @@
 <%= react_component('WorkoutSet', current_user: current_user, workout_set: @workout_set, workout: @workout, workout_plan: @workout_plan, workout_plan_days: @workout_plan_days)  %>
+<div className="container">
+  <div class="set-box-container">
+    <div class="set-button-container">
+      <%= link_to complete_workout_path(id: @workout.id, completed: true), class: '', method: :post do %>
+        <div class="set-button set-button-completed">
+          Complete
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
