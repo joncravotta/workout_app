@@ -1,0 +1,13 @@
+<h1>dashboard</h1>
+<h3><%= @workout_plan.name %></h3>
+
+<% @workout.each do |w| %>
+  <%= w.name %>
+  <%= w.day %>
+  <%= link_to "Edit", edit_workout_path(w.id) %>
+  <%= link_to "Sets", dashboard_workout_path(w.id) %>
+  <hr />
+<% end %>
+<%= link_to new_workout_plan_workout_path(@workout_plan) do %>
+  New Workout
+<% end %>

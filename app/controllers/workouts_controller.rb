@@ -22,7 +22,7 @@ class WorkoutsController < ApplicationController
     @workout = workout_plan.workouts.create(workout_params)
     if @workout.save
       flash[:success] = 'Your Workout Was created'
-      redirect_to workout_plan_workouts_path
+      redirect_to dashboard_workout_plan_path(workout_plan)
     else
       render :new
     end
@@ -36,7 +36,7 @@ class WorkoutsController < ApplicationController
     @workout = Workout.find(params[:id])
     if @workout.update(workout_params)
       flash[:success] = 'Your Workout was updated successfully'
-      redirect_to workout_plan_workouts_path(@workout.workout_plan)
+      redirect_to dashboard_workout_plan_path(@workout.workout_plan)
     else
       render :edit
     end
@@ -52,6 +52,11 @@ class WorkoutsController < ApplicationController
       flash[:success] = "Completed #{@workout.name}"
       redirect_to workout_plan_workouts_path(@workout.workout_plan)# send suser back to where they were came from
     end
+  end
+
+  def dashboard
+    @workout = Workout.find(params[:id])
+    @workout_sets = WorkoutSet.where(workout: @workout)
   end
 
   private

@@ -70,6 +70,11 @@ class WorkoutPlansController < ApplicationController
     end
   end
 
+  def dashboard
+    @workout_plan = WorkoutPlan.find(params[:id])
+    @workout = Workout.where(workout_plan: @workout_plan)
+  end
+
   private
 
   def workout_plan_params

@@ -14,7 +14,7 @@ class WorkoutSetsController < ApplicationController
     @workout_set = workout.workout_sets.create(workout_set_params)
     if @workout_set.save
       flash[:success] = 'Your Workout set Was created'
-      redirect_to workout_workout_sets_path
+      redirect_to dashboard_workout_path(workout)
     else
       render :new
     end
