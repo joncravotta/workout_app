@@ -18,7 +18,7 @@
               </div>
               <div class="plan-cta">
                 <span class="plan-title"><%= link_to plan.name, workout_plan_workouts_path(plan) %></span>
-                <%= link_to edit_workout_plan_path(plan), class: 'plan-follow-button' do %>
+                <%= link_to dashboard_workout_plan_path(plan), class: 'plan-follow-button' do %>
                   Edit
                 <% end %>
                 <%= link_to workout_plan_path(plan), class: 'plan-follow-button unfollow-button', method: :delete, data: { confirm: "Are you sure?" } do %>

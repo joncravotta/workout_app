@@ -20,7 +20,7 @@ class WorkoutPlansController < ApplicationController
 
     if @workout_plan.save
       flash[:success] = 'Your Workout Plan Was created'
-      redirect_to workout_plans_path
+      redirect_to dashboard_workout_plan_path(@workout_plan)
     else
       render :new
     end
@@ -68,6 +68,11 @@ class WorkoutPlansController < ApplicationController
       flash[:danger] = "Your update could not be completed"
       redirect_to :back  # send suser back to where they were came from
     end
+  end
+
+  def dashboard
+    @workout_plan = WorkoutPlan.find(params[:id])
+    @workout = Workout.where(workout_plan: @workout_plan)
   end
 
   private

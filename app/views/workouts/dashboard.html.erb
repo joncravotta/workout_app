@@ -1,0 +1,9 @@
+<h1>Dashboard</h1>
+<h3><%= @workout.name %></h3>
+<br />
+<% @workout_sets.each do |w| %>
+<%= w.name %>
+<%= link_to "Edit" %>
+<hr />
+<% end %>
+<%= link_to "Add Set",  new_workout_workout_set_path(@workout.id) %>

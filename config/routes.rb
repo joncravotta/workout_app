@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   resources :workout_plans do
     member do
+      get 'dashboard'
       post 'follow'
       post 'delete_follow'
     end
@@ -18,6 +19,7 @@ Rails.application.routes.draw do
 
   resources :workouts do
     member do
+      get 'dashboard'
       post 'complete'
     end
     resources :workout_sets do
