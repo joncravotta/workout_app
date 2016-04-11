@@ -20,7 +20,7 @@ class WorkoutPlansController < ApplicationController
 
     if @workout_plan.save
       flash[:success] = 'Your Workout Plan Was created'
-      redirect_to workout_plans_path
+      redirect_to dashboard_workout_plan_path(@workout_plan)
     else
       render :new
     end

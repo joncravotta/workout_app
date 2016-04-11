@@ -28,7 +28,7 @@
       <span class="workout-stats"><%= workout_count.length %> Workouts</span>
 
       <% @workout.each do |workout_day| %>
-      <% if Follow.where(user: current_user, workout_plan: @workout_plan).present? %>
+      <% if Follow.where(user: current_user, workout_plan: @workout_plan).present? || @workout_plan.user == current_user %>
         <!-- Completed workout -->
         <% if CompletedWorkout.where(user: current_user, workout: workout_day).present? %>
             <%= link_to workout_workout_sets_path(workout_day) do %>
@@ -80,21 +80,7 @@
             </div>
           </div>
         <% end %>
-
-
-        <% if current_user == workout_day.workout_plan.user %>
-          <%= link_to edit_workout_path(workout_day), class: 'workout-edit' do %>
-            Edit
-          <% end %>
-        <% end %>
       <% end %>
-
-      <% if current_user == @workout_plan.user %>
-        <%= link_to new_workout_plan_workout_path, class: 'secondary-button margin-top-25px' do %>
-          New Workout
-        <% end %>
-      <% end %>
-
     </div>
   </div>
 </div>
