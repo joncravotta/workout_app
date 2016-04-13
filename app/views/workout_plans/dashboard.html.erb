@@ -1,14 +1,16 @@
-<div class="dashboard-container">
+<div class="dashboard-container margin-top-25px padding-bottom-25px">
+<span class="section-title"><%= @workout_plan.name %> plan</span>
 
-<h1>dashboard</h1>
-<h3><%= @workout_plan.name %></h3>
-<table>
+<table class="margin-25px">
   <tr>
     <th>
       Day
     </th>
     <th>
       Name
+    </th>
+    <th>
+      Description
     </th>
     <th>
       Edit
@@ -24,6 +26,9 @@
     </td>
     <td>
       <%= w.name %>
+    </td>
+    <td>
+      <%= w.description %>
     </td>
     <td>
       <%= link_to "Edit", edit_workout_path(w.id) %>

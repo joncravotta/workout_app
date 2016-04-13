@@ -122,6 +122,7 @@
   margin: 0 auto;
 
   a {
+    @include primary-font(15px);
     color: $primary;
     text-decoration: underline;
   }
@@ -130,7 +131,7 @@ table, th, td {
     border: 1px solid black;
     border-collapse: collapse;
     text-align: center;
-    @include primary-font(15px);
+    @include secondary-font(15px);
 
     a {
       color: $primary;
@@ -139,7 +140,7 @@ table, th, td {
 }
 
 td, th {
-  padding: 10px;
+  padding: 15px;
   max-width: 200px;
 }
 

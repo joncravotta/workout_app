@@ -1,9 +1,9 @@
-<div class="dashboard-container margin-top-25px">
+<div class="dashboard-container margin-top-25px padding-bottom-25px">
   <%= link_to 'Back to workouts',dashboard_workout_plan_path(@workout.workout_plan_id) %>
   <br />
   <span class="section-title"><%= @workout.name %> Sets</span>
   <br />
-  <table class="margin-top-25px">
+  <table class="margin-25px">
     <tr>
       <th>
         Name
@@ -41,5 +41,5 @@
   </tr>
   <% end %>
 </table>
-  <%= link_to "Add Set",  new_workout_workout_set_path(@workout.id)%>
+  <%= link_to "Add Set", new_workout_workout_set_path(@workout.id)%>
 </div>
