@@ -1,9 +1,45 @@
-<h1>Dashboard</h1>
-<h3><%= @workout.name %></h3>
-<br />
-<% @workout_sets.each do |w| %>
-<%= w.name %>
-<%= link_to "Edit" %>
-<hr />
-<% end %>
-<%= link_to "Add Set",  new_workout_workout_set_path(@workout.id) %>
+<div class="dashboard-container margin-top-25px">
+  <%= link_to 'Back to workouts',dashboard_workout_plan_path(@workout.workout_plan_id) %>
+  <br />
+  <span class="section-title"><%= @workout.name %> Sets</span>
+  <br />
+  <table class="margin-top-25px">
+    <tr>
+      <th>
+        Name
+      </th>
+      <th>
+        Amount
+      </th>
+      <th>
+        Rep Type
+      </th>
+      <th>
+        Description
+      </th>
+      <th>
+        edit
+      </th>
+    </tr>
+  <% @workout_sets.each do |w| %>
+  <tr>
+    <td>
+      <%= w.name %>
+    </td>
+    <td>
+      <%= w.amount %>
+    </td>
+    <td>
+      <%= w.rep_type %>
+    </td>
+    <td>
+      <%= w.description %>
+    </td>
+    <td>
+      <%= link_to "Edit" %>
+    </td>
+  </tr>
+  <% end %>
+</table>
+  <%= link_to "Add Set",  new_workout_workout_set_path(@workout.id)%>
+</div>

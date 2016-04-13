@@ -113,3 +113,37 @@
     }
   }
 }
+
+
+
+// DashBoard
+.dashboard-container {
+  width: 90%;
+  margin: 0 auto;
+
+  a {
+    color: $primary;
+    text-decoration: underline;
+  }
+}
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align: center;
+    @include primary-font(15px);
+
+    a {
+      color: $primary;
+      text-decoration: underline;
+    }
+}
+
+td, th {
+  padding: 10px;
+  max-width: 200px;
+}
+
+table {
+  width: 100%;
+  margin: 0 auto;
+}
