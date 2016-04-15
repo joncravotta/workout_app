@@ -27,3 +27,20 @@
     }
 
 }
+
+.home-second-section {
+  @include display(flex);
+  @include align-items(center);
+  @include flex-direction(column);
+  padding: 60px 0;
+}
+
+.how-it-works-copy {
+  @include primary-font(22px);
+}
+
+.how-it-works-border {
+  background-color: $primary;
+  height: 4px;
+  width: auto;
+}
