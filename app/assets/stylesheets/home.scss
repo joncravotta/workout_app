@@ -1,3 +1,29 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.hero {
+  height: 100vh;
+  background: image-url('running.jpg');
+  background-position: center;
+  background-size: cover;
+  // filter: blur(5^);
+  @include display(flex);
+  @include align-items(center);
+  @include justify-content(center);
+  @include flex-direction(column);
+  @include primary-font(35px);
+  color: #fff;
+
+    .hero-btn {
+      padding: 15px 50px;
+      @include secondary-font(20px);
+      background-color: $primary;
+      color: white;
+      cursor: pointer;
+
+      &:hover {
+        background-color: rgba(0, 222, 97, 0.8);
+      }
+    }
+
+}

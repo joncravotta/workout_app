@@ -1,4 +1,4 @@
-@import 'helpers/*', 'partials/*', 'workout_plans', 'workouts', 'workout_sets';
+@import 'helpers/*', 'partials/*', 'workout_plans', 'workouts', 'workout_sets', 'home';
 
 body {
   margin: 0;
@@ -24,14 +24,6 @@ a {
   padding-top: 25px;
   padding-left: 25px;
   padding-right: 25px;
-}
-
-.hero {
-  height: 100vh;
-  background: image-url('running.jpg');
-  background-position: center;
-  background-size: cover;
-  filter: blur(3px);
 }
 
 .section-title {
