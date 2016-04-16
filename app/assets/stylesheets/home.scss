@@ -167,4 +167,8 @@
       @include secondary-font(15px);
     }
   }
+
+  .how-it-works-copy-md {
+    @include primary-font(25px);
+  }
 }
