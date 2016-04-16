@@ -28,19 +28,143 @@
 
 }
 
-.home-second-section {
+.home-info-section {
   @include display(flex);
   @include align-items(center);
   @include flex-direction(column);
   padding: 60px 0;
+  text-align: center;
+}
+
+.how-it-works {
+  padding: 35px 0;
+}
+
+.how-it-works-copy-md {
+  @include primary-font(35px);
 }
 
 .how-it-works-copy {
-  @include primary-font(22px);
+  @include primary-font(30px);
 }
 
 .how-it-works-border {
   background-color: $primary;
   height: 4px;
   width: auto;
+}
+
+.how-it-works-image {
+  margin: 0 auto;
+}
+
+.how-it-works-copy-body {
+  @include secondary-font(20px);
+  color: $secondary;
+}
+
+.how-it-works-link {
+  @include primary-font(20px);
+  color: $primary;
+  text-decoration: underline;
+  padding-bottom: 35px;
+}
+
+.home-image-section {
+  width: 100%;
+}
+
+.home-final-cta-section {
+  @extend .home-info-section;
+
+}
+
+.home-large-cta-copy {
+  @include primary-font(45px);
+}
+
+.home-button {
+  @include primary-font(20px);
+  background-color: $primary;
+  color: white;
+  padding: 10px 75px;
+}
+
+.home-image-row {
+  @include display(flex);
+  @include flex-direction(row);
+  width: 100%;
+  height: 400px;
+
+  .box-1 {
+    background: url(image_path("box1.jpg"));
+    width: 50%;
+    background-position: center;
+    background-size: cover;
+  }
+  .box-2 {
+    background: url(image_path("box2.jpg"));
+    width: 50%;
+    background-position: center;
+    background-size: cover;
+  }
+  .box-3 {
+    background: url(image_path("box3.jpg"));
+    width: 50%;
+    background-position: center;
+    background-size: cover;
+  }
+  .box-4 {
+    background: url(image_path("box4.jpg"));
+    width: 50%;
+    background-position: center;
+    background-size: cover;
+  }
+}
+.home-box-overlay {
+  background-color: rgba(255, 255, 255, .8);
+  width: 100%;
+  padding: 20px 0 20px 10px;
+  border-left: 5px solid $primary;
+  @include display(flex);
+  @include flex-direction(column);
+
+  .home-box-cta {
+    @include primary-font(25px);
+  }
+  .home-box-copy {
+    @include secondary-font(18px);
+  }
+}
+
+@media (max-width: 800px) {
+  .home-image-row {
+    @include flex-direction(column);
+
+    .box-1 {
+      width: 100%;
+      height: 400px;
+    }
+    .box-2 {
+      width: 100%;
+      height: 400px;
+    }
+    .box-3 {
+      width: 100%;
+      height: 400px;
+    }
+    .box-4 {
+      width: 100%;
+      height: 400px;
+    }
+  }
+
+  .home-box-overlay {
+    .home-box-cta {
+      @include primary-font(22px);
+    }
+    .home-box-copy {
+      @include secondary-font(15px);
+    }
+  }
 }
