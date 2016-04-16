@@ -1,4 +1,4 @@
-@import 'helpers/*', 'partials/*', 'workout_plans', 'workouts', 'workout_sets';
+@import 'helpers/*', 'partials/*', 'workout_plans', 'workouts', 'workout_sets', 'home';
 
 body {
   margin: 0;
@@ -6,6 +6,21 @@ body {
 
 a {
   text-decoration: none;
+}
+
+.padding-bottom-60px {
+  padding-bottom: 60px;
+}
+
+.padding-top-60px {
+  padding-top: 60px;
+}
+.padding-100px {
+  padding: 100px 0;
+}
+
+.padding-top-10px {
+  padding-top: 10px;
 }
 
 .site-wrap {
@@ -24,14 +39,6 @@ a {
   padding-top: 25px;
   padding-left: 25px;
   padding-right: 25px;
-}
-
-.hero {
-  height: 100vh;
-  background: image-url('running.jpg');
-  background-position: center;
-  background-size: cover;
-  filter: blur(3px);
 }
 
 .section-title {
