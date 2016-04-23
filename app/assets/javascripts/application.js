@@ -18,7 +18,12 @@
 //= require components
 //= require_tree .
 
-$(document).ready(function() {
+// This is a turbo link fix
+$(window).bind('page:change', function() {
+  initPage();
+});
+
+function initPage() {
   $('.close-notification').click(function(){
     $('.notifications').hide();
   });
@@ -31,4 +36,4 @@ $(document).ready(function() {
     $('.hamburger-menu').css({"display":"none","visibility":"hidden"});
     $('.hamburger').show();
   });
-});
+}
