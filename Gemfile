@@ -23,6 +23,10 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'devise', '~> 3.5', '>= 3.5.6'
+# Image upload
+gem 'carrierwave', '~> 0.10.0'
+# Image manipulation
+gem 'mini_magick', '~> 4.5', '>= 4.5.1'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

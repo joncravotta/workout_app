@@ -78,7 +78,7 @@ class WorkoutPlansController < ApplicationController
   private
 
   def workout_plan_params
-    params.require(:workout_plan).permit(:name, :description, :summary)
+    params.require(:workout_plan).permit(:name, :description, :summary, :picture)
   end
 
   def require_same_user
