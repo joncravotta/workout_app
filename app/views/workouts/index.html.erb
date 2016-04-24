@@ -3,7 +3,7 @@
     <div class="split-container">
       <span class="section-title"><%= @workout_plan.name %></span>
       <div class="workout-image">
-        <%= image_tag(@workout_plan.picture.url, size: "300x200") if @workout_plan.picture? %>
+        <%= image_tag(@workout_plan.picture.url) if @workout_plan.picture? %>
       </div>
       <span class="workout-summary"><%= @workout_plan.summary %></span>
       <span class="workout-description"><%= @workout_plan.description %></span>

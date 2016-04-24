@@ -11,7 +11,9 @@
       <% else %>
         <% @workout_plans.each do |plan| %>
           <div class="plan-container">
-            <div class="plan-image"></div>
+            <div class="plan-image">
+              <%= image_tag(plan.picture.url) if plan.picture? %>
+            </div>
             <div class="plan-content">
               <div class="plan-description">
                 <p><%= plan.description %></p>

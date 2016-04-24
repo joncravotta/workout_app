@@ -11,7 +11,9 @@
       <% else %>
         <% @following.each do |follow| %>
           <div class="plan-container">
-            <div class="plan-image"></div>
+            <div class="plan-image">
+              <%= image_tag(follow.workout_plan.picture.url) if follow.workout_plan.picture? %>
+            </div>
             <div class="plan-content">
               <div class="plan-description">
                 <p><%= follow.workout_plan.description %></p>
@@ -30,4 +32,4 @@
     <div class="split-container">
     </div>
   </div>
-</div>  
+</div>
