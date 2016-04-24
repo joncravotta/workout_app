@@ -10,25 +10,6 @@ var WorkoutSet = React.createClass({
     };
   },
 
-  componentDidMount: function() {
-    this.handleScrollPosition();
-  },
-
-  handleScrollPosition: function() {
-    function sticky_relocate() {
-        var window_top = $(window).scrollTop();
-        var div_top = $('.sets-sticky-anchor').offset().top - 60;
-        if (window_top > div_top) {
-            $('.set-header').addClass('stick');
-        } else {
-            $('.set-header').removeClass('stick');
-        }
-    }
-    $(window).scroll(sticky_relocate);
-    sticky_relocate();
-  },
-
-
   handleSetCompletion: function(id) {
     new_arr = this.state.completedSetsArr;
     new_arr.push(id);
