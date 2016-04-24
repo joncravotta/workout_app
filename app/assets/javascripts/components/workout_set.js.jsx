@@ -27,7 +27,6 @@ var WorkoutSet = React.createClass({
     var handleSetCompletion = this.handleSetCompletion;
     return (
       <div className="container">
-        <div className="sets-sticky-anchor"></div>
         <div className="set-header">
           <span className="set-workout-name">{this.state.workoutData.name}</span>
           <span className="set-workout-info">Day {this.state.workoutData.day}:</span>
