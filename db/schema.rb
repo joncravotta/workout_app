@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160410015636) do
+ActiveRecord::Schema.define(version: 20160423224042) do
 
   create_table "completed_sets", force: :cascade do |t|
     t.boolean  "completed"
@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(version: 20160410015636) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "user_id"
+    t.string   "picture"
   end
 
   create_table "workout_sets", force: :cascade do |t|

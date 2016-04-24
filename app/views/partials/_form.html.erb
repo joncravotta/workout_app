@@ -1,6 +1,6 @@
 <div class="content-container">
   <div class="form">
-    <%= form_for @workout_plan do |f| %>
+    <%= form_for(@workout_plan, html: { multipart: true }) do |f| %>
       <h1 class="section-title">Create Workout Plans</h1>
       <div class="form-first-row">
         <div class="form-label-group">
@@ -18,9 +18,23 @@
           <%= f.text_area :description, rows: 12 %>
         </div>
       </div>
+      <div class="form-first-row">
+        <div class="form-submission">
+          <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+        </div>
+      </div>
       <div class="form-submission">
         <%= f.submit (@workout_plan.new_record? ? 'Create Workout Plan' : 'Edit Workout Plan'), class: 'primary-button' %>
       </div>
     <% end %>
   </div>
 </div>
+
+<script type="text/javascript">
+  $('#workout_plan_picture').bind('change', function(){
+    size_in_magabytes = this.files[0].size/1024/1024;
+    if (size_in_magabytes > 5) {
+      alert('Maximum picture size is 5MB.  Please choose a smaller file.');
+    }
+  });
+</script>
