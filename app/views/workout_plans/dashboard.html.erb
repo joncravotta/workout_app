@@ -1,46 +1,28 @@
 <div class="dashboard-container margin-top-25px padding-bottom-25px">
 <span class="section-title"><%= @workout_plan.name %> plan</span>
+<br />
+<%= link_to "Edit", edit_workout_plan_path(@workout_plan) %>
+<hr>
 
 <table class="margin-25px">
   <tr>
-    <th>
-      Day
-    </th>
-    <th>
-      Name
-    </th>
-    <th>
-      Description
-    </th>
-    <th>
-      Edit
-    </th>
-    <th>
-      View Sets
-    </th>
+    <th>Day</th>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Edit</th>
+    <th>View Sets</th>
   </tr>
   <% @workout.each do |w| %>
-  <tr>
-    <td>
-      <%= w.day %>
-    </td>
-    <td>
-      <%= w.name %>
-    </td>
-    <td>
-      <%= w.description %>
-    </td>
-    <td>
-      <%= link_to "Edit", edit_workout_path(w.id) %>
-    </td>
-    <td>
-      <%= link_to "View sets", dashboard_workout_path(w.id) %>
-    </td>
+    <tr>
+      <td><%= w.day %></td>
+      <td><%= w.name %></td>
+      <td><%= w.description %></td>
+      <td><%= link_to "Edit", edit_workout_path(w.id) %></td>
+      <td><%= link_to "View sets", dashboard_workout_path(w.id) %></td>
     </tr>
-    <% end %>
+  <% end %>
 </table>
   <%= link_to new_workout_plan_workout_path(@workout_plan) do %>
     New Workout
   <% end %>
-
 </div>

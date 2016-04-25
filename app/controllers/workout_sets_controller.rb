@@ -25,9 +25,10 @@ class WorkoutSetsController < ApplicationController
   end
 
   def update
+    @workout_set = WorkoutSet.find(params[:id])
     if @workout_set.update(workout_set_params)
       flash[:success] = 'Your Workout was updated successfully'
-      redirect_to workout_workout_sets_path(@workout_set.workout)
+      redirect_to dashboard_workout_path(@workout_set.workout)
     else
       render :edit
     end
