@@ -13,6 +13,14 @@
 
 ActiveRecord::Schema.define(version: 20160423224042) do
 
+  create_table "complete_workouts", force: :cascade do |t|
+    t.boolean  "completed"
+    t.integer  "user_id"
+    t.integer  "workout_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "completed_sets", force: :cascade do |t|
     t.boolean  "completed"
     t.integer  "user_id"

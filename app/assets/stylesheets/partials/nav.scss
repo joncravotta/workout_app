@@ -5,6 +5,7 @@
   @include justify-content(space-between);
   @include align-items(center);
   position: fixed;
+  z-index: 2;
   background-color: #fff;
   border-bottom: 2px solid $secondary;
   .logo{
