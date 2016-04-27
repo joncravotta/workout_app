@@ -6,8 +6,8 @@
       </div>
       <h1 class="section-title">Your created plans</h1>
       <% if @workout_plans.length < 1 %>
-        <p>You arent following any plans</p>
-        <%= link_to 'Follow Plan', workout_plans_path %>
+        <p class="primary-copy">You have not created any plans.</p>
+        <%= link_to 'Create Plan', new_workout_plan_path, class: 'primary-button' %>
       <% else %>
         <% @workout_plans.each do |plan| %>
           <div class="plan-container">
