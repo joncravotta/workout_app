@@ -10,6 +10,7 @@
       <th>Rep Type</th>
       <th>Description</th>
       <th>edit</th>
+      <th>copy</th>
     </tr>
     <% @workout_sets.each do |w| %>
       <tr>
@@ -18,6 +19,11 @@
         <td><%= w.rep_type %></td>
         <td><%= w.description %></td>
         <td><%= link_to "Edit", edit_workout_workout_set_path(@workout.id ,w.id) %></td>
+        <td>
+          <%= link_to duplicate_workout_workout_set_path(@workout.id, w.id), method: :post do %>
+            Copy
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </table>
