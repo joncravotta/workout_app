@@ -55,7 +55,7 @@
   .plan-title {
     width: 80%;
     padding-left: 25px;
-    @include primary-font(20px);
+    @include primary-font(18px);
 
     a {
       color: $midnight;
@@ -73,6 +73,7 @@
     height: 100%;
     color: white;
     text-decoration: none;
+    padding: 0 20px;
 
     &:hover {
       background-color: rgba(0, 222, 97, 0.8);
