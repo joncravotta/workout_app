@@ -17,7 +17,11 @@
       <td><%= w.day %></td>
       <td><%= w.name %></td>
       <td><%= w.description %></td>
-      <td><%= link_to "Edit", edit_workout_path(w.id) %></td>
+      <td>
+        <%= link_to edit_workout_path(w.id) do %>
+          <%= image_tag('edit_dark_icon.png', style: 'width: 20px;') %>
+        <% end %>
+      </td>
       <td><%= link_to "View sets", dashboard_workout_path(w.id) %></td>
     </tr>
   <% end %>
