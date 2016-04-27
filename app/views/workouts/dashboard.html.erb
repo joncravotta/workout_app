@@ -9,8 +9,8 @@
       <th>Amount</th>
       <th>Rep Type</th>
       <th>Description</th>
-      <th>edit</th>
-      <th>copy</th>
+      <th>Edit</th>
+      <th>Duplicate</th>
     </tr>
     <% @workout_sets.each do |w| %>
       <tr>
@@ -18,10 +18,14 @@
         <td><%= w.amount %></td>
         <td><%= w.rep_type %></td>
         <td><%= w.description %></td>
-        <td><%= link_to "Edit", edit_workout_workout_set_path(@workout.id ,w.id) %></td>
+        <td>
+          <%= link_to edit_workout_workout_set_path(@workout.id ,w.id) do %>
+            <%= image_tag('edit_dark_icon.png', style: 'width: 20px;') %>
+          <% end %>
+        </td>
         <td>
           <%= link_to duplicate_workout_workout_set_path(@workout.id, w.id), method: :post do %>
-            Copy
+            <%= image_tag('copy_icon.png', style: 'width: 20px;') %>
           <% end %>
         </td>
       </tr>
