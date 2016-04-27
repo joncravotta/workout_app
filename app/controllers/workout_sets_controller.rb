@@ -20,6 +20,17 @@ class WorkoutSetsController < ApplicationController
     end
   end
 
+  def duplicate
+    @workout_set = WorkoutSet.find(params[:id]).dup
+    if @workout_set.save
+      flash[:success] = 'Set was duplicated'
+      redirect_to dashboard_workout_path(params[:workout_id])
+    else
+      flash[:danger] = 'Set could not be duplicated'
+      redirect_to dashboard_workout_path(params[:workout_id])
+    end
+  end
+
   def edit
     @workout_set = WorkoutSet.find(params[:id])
   end

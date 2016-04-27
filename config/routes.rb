@@ -25,6 +25,7 @@ Rails.application.routes.draw do
     resources :workout_sets do
       member do
         post 'complete'
+        post 'duplicate'
       end
     end
   end
