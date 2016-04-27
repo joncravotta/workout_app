@@ -47,6 +47,12 @@ a {
   // border-bottom: 3px solid $midnight;
 }
 
+
+.primary-copy {
+  @include secondary-font(15px);
+}
+
+
 .crumbs-link {
   @include primary-font(18);
   color: $secondary;
