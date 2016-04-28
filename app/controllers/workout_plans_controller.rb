@@ -4,8 +4,6 @@ class WorkoutPlansController < ApplicationController
 
   def index
     @workout_plans = WorkoutPlan.all.reverse
-    @workout = Workout.where(workout_plan_id: params[:id])
-    @completed = CompletedWorkout.where(workout_id: @workout.ids)
   end
 
   def show
