@@ -14,7 +14,7 @@
       <% else %>
         <span class="workout-stats"><%= follower_amount%> Followers</span>
       <% end %>
-      <% if Follow.where(user: current_user, workout_plan: @workout_plan).present? %>
+      <% if @follow_status %>
         <div class="secondary-button-div">
           Following
         </div>
@@ -27,8 +27,11 @@
     <div class="split-container">
 
       <% workout_count = Workout.where(workout_plan: @workout_plan)%>
-      <span class="workout-stats"><%= workout_count.length %> Workouts</span>
-
+      <% if @follow_status %>
+        <span class="workout-stats"><%= @completed.count %> of <%= workout_count.length %> Workouts completed</span>
+      <% else %>
+        <span class="workout-stats"><%= workout_count.length %> Workouts</span>
+      <% end %>
       <% @workout.each do |workout_day| %>
       <% if Follow.where(user: current_user, workout_plan: @workout_plan).present? || @workout_plan.user == current_user %>
         <!-- Completed workout -->
