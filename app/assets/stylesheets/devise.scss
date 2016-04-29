@@ -1,0 +1,82 @@
+.devise-container {
+  @include display(flex);
+  @include flex-direction(column);
+  @include align-items(center);
+  padding: 50px 0;
+}
+
+.devise-form {
+  width: 100%;
+  @include display(flex);
+  @include flex-direction(column);
+  @include align-items(center);
+
+  form {
+    width: 80%;
+  }
+}
+
+.devise-heading-group {
+  @include display(flex);
+  @include flex-direction(column);
+  @include align-items(center);
+}
+
+.devise-heading {
+  @include primary-font(25px);
+}
+
+.devise-border {
+  margin-top: 7px;
+  height: 4px;
+  width: 45px;
+  background-color: $primary;
+}
+
+.field {
+  padding-top: 25px;
+}
+
+.field label {
+  @include secondary-font(15px);
+  color: $secondary;
+}
+
+.field input {
+  height: 30px;
+  width: 100%;
+  @include secondary-font(18px);
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  background: transparent;
+  appearance: none;
+  box-shadow: none;
+  border-radius: none;
+  border: none;
+  border-bottom: solid 1px $secondary;
+
+  &:focus{
+      outline: none;
+      border-bottom: solid 1px $primary;
+  }
+}
+
+.actions {
+  input {
+    @include primary-font(18px);
+    width: 100%;
+    background-color: $primary;
+    color: #fff;
+    margin-top: 50px;
+    border: none;
+    padding: 15px 0;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    -webkit-border-radius: 0;
+  }
+}
