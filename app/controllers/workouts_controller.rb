@@ -5,7 +5,10 @@ class WorkoutsController < ApplicationController
   def index
     @workout = Workout.where(workout_plan_id: params[:workout_plan_id])
     @workout_plan = WorkoutPlan.find(params[:workout_plan_id])
-    @completed = CompletedWorkout.where(workout_id: @workout)
+    @follow_status = Follow.where(user: current_user, workout_plan: @workout_plan).present?
+    if current_user
+      @completed = CompletedWorkout.where(workout_id: @workout, user_id: current_user.id)
+    end
   end
 
   def show
