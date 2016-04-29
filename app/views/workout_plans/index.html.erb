@@ -19,8 +19,13 @@
               <% if follower_amount == 1 %>
                 <span><%= follower_amount %> Follower</span>
               <% else %>
-                <span><%= follower_amount%> Followers</span>
+                <span><%= follower_amount %> Followers</span>
               <% end %>
+            </div>
+            <% workouts = Workout.where(workout_plan_id: plan.id) %>
+            <% completed =  CompletedWorkout.where(workout_id: workouts) %>
+            <div class="plan-stats">
+              <span><%= completed.count %> completed workouts</span>
             </div>
             <div class="plan-cta">
               <span class="plan-title"><%= link_to plan.name, workout_plan_workouts_path(plan) %></span>
