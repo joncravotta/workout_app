@@ -22,7 +22,11 @@
           <%= image_tag('edit_dark_icon.png', style: 'width: 20px;') %>
         <% end %>
       </td>
-      <td><%= link_to "View sets", dashboard_workout_path(w.id) %></td>
+      <td>
+        <%= link_to dashboard_workout_path(w.id) do %>
+          <%= image_tag('view_icon.png', style: 'width: 25px;') %>
+        <% end %>
+      </td>
     </tr>
   <% end %>
 </table>
