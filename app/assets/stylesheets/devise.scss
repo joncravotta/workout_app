@@ -13,6 +13,7 @@
 
   form {
     width: 80%;
+    max-width: 600px;
   }
 }
 
@@ -35,10 +36,11 @@
 
 .field {
   padding-top: 25px;
+  @include secondary-font(15px);
+  color: $secondary;
 }
 
 .field label {
-  @include secondary-font(15px);
   color: $secondary;
 }
 
@@ -62,6 +64,11 @@
       outline: none;
       border-bottom: solid 1px $primary;
   }
+}
+
+// Chrome autofill background default
+.field input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px white inset;
 }
 
 .actions {
