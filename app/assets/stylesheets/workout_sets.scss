@@ -9,17 +9,18 @@
 }
 
 .set-workout-name {
-  @include primary-font(25px);
+  @include secondary-font(18px);
   color: white;
-  text-decoration: underline;
-  display: block;
-  margin-bottom: 5px;
+  font-weight: 300;
+}
+
+.set-workout-count {
+  @extend .set-workout-name;
   padding-left: 25px;
 }
 
 .set-workout-info {
   @include primary-font(18px);
-  display: block;
   color: white;
   padding-left: 25px;
 }
@@ -36,7 +37,6 @@
 }
 
 .set-box {
-  @include primary-font(22px);
   @include display(flex);
   @include flex-direction(row);
   border-top: 1px solid $secondary;
@@ -59,12 +59,25 @@
   width: 70%;
 }
 
+.set-amount-container {
+  @include display(flex);
+  @include flex-direction(column);
+  text-align: center;
+}
+
 .set-amount {
-  font-size: 27px;
+  @include secondary-font(25px);
+  font-weight: 300;
+}
+
+.set-amount-type {
+  @extend .set-amount;
+  font-size: 22px;
 }
 
 .set-name {
-  padding-left: 25px;
+  @include primary-font(22px);
+  padding: 0 25px;
 }
 
 .set-complete {
