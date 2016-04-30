@@ -26,7 +26,7 @@
 }
 
 .set-box-container {
-  padding: 130px 25px 25px 25px;
+  padding: 130px 10px 25px 10px;
   max-width: 600px;
   margin: auto;
 }
@@ -55,7 +55,7 @@
   @include display(flex);
   @include flex-direction(row);
   @include align-items(center);
-  padding: 25px 15px 25px 25px;
+  padding: 25px 10px 25px 20px;
   width: 70%;
 }
 
