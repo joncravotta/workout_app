@@ -32,8 +32,13 @@ var WorkoutSetBox = React.createClass({
       <div>
         <div className={borderLeft}>
           <div className="set-box-left" onClick={this.activatePopUp}>
-          <div className="set-amount">
-            {this.state.set.amount}
+          <div className="set-amount-container">
+            <div className="set-amount">
+              {this.state.set.amount}
+            </div>
+            <div className="set-amount-type">
+              {this.state.set.rep_type}
+            </div>
           </div>
           <div className="set-name">
             {this.state.set.name}
