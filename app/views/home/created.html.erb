@@ -2,7 +2,7 @@
   <div class="container plans-container">
     <div class="split-container">
       <div class="crumbs-link">
-        <%= link_to 'Following', home_profile_path %> | <%= link_to 'Created', home_created_path, class: 'crumbs-active' %>
+        <%= link_to 'Following', home_profile_path %> | <%= link_to 'Created', home_created_path, class: 'crumbs-active' %> | <%= link_to 'Profile', edit_user_registration_path %>
       </div>
       <h1 class="section-title">Your created plans</h1>
       <% if @workout_plans.length < 1 %>
