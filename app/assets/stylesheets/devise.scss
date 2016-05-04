@@ -88,3 +88,20 @@
     -webkit-border-radius: 0;
   }
 }
+
+.cancel-account {
+  a {
+    @include primary-font(18px);
+    width: 100%;
+    background-color: $warning;
+    color: #fff;
+    margin-top: 50px;
+    border: none;
+    padding: 15px 50px;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    -webkit-border-radius: 0;
+  }
+}
