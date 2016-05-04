@@ -45,6 +45,13 @@ class WorkoutSetsController < ApplicationController
     end
   end
 
+  def destroy
+    @workout_set = WorkoutSet.find(params[:id])
+    WorkoutSet.find(@workout_set).destroy
+    flash[:success] = 'Successfully deleted'
+    redirect_to dashboard_workout_path(@workout_set.workout)
+  end
+
   def complete
     CompletedSet.create(completed: params[:completed], user: current_user, workout_set: @workout_set)
     flash[:success] = "You have completed the #{@workout_set.name} set"

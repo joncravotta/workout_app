@@ -45,6 +45,17 @@ class WorkoutsController < ApplicationController
     end
   end
 
+  def destroy
+    @workout = Workout.find(params[:id])
+    @workout_sets = WorkoutSet.where(workout_id: @workout)
+    @workout_sets.each do |workout_set|
+      WorkoutSet.find(workout_set.id).destroy
+    end
+    Workout.find(@workout).destroy
+    flash[:success] = 'Successfully deleted'
+    redirect_to dashboard_workout_plan_path(@workout.workout_plan)
+  end
+
   def complete
     @workout = Workout.find(params[:id])
     if CompletedWorkout.where(user: current_user, workout: @workout).present?
