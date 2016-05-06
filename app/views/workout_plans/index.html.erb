@@ -19,8 +19,8 @@
               <% completed_count =  CompletedWorkout.where(workout_id: workouts) %>
               <% follower_amount = Follow.where(workout_plan: plan).length %>
               <% total_workouts = workouts.length * follower_amount %>
-              <% if completed_count.length == 0 %>
-                <% completed_percentage = 0 %>
+              <% if completed_count.length == 0 || follower_amount == 0 %>
+                <% completed_percentage = "0" %>
               <% else %>
                 <% completed_percentage = (1.0 * completed_count.length/total_workouts * 100).round(0) %>
               <% end %>
@@ -61,8 +61,8 @@
               <% completed_count =  CompletedWorkout.where(workout_id: workouts) %>
               <% follower_amount = Follow.where(workout_plan: plan).length %>
               <% total_workouts = workouts.length * follower_amount %>
-              <% if completed_count.length == 0 %>
-                <% completed_percentage = 0 %>
+              <% if completed_count.length == 0 || follower_amount == 0 %>
+                <% completed_percentage = "0" %>
               <% else %>
                 <% completed_percentage = (1.0 * completed_count.length/total_workouts * 100).round(0) %>
               <% end %>
