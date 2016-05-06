@@ -19,14 +19,18 @@
               <% completed_count =  CompletedWorkout.where(workout_id: workouts) %>
               <% follower_amount = Follow.where(workout_plan: plan).length %>
               <% total_workouts = workouts.length * follower_amount %>
-              <% completed_percentage = 1.0 * completed_count.length/total_workouts * 100%>
+              <% if completed_count.length == 0 %>
+                <% completed_percentage = 0 %>
+              <% else %>
+                <% completed_percentage = (1.0 * completed_count.length/total_workouts * 100).round(0) %>
+              <% end %>
               <div class="plan-stats">
                 <div class="plan-stat-info-container">
                   <div class="plan-stat-info-number"><%= workouts.length %></div>
                   <div class="plan-stat-info-title">Workouts</div>
                 </div>
                 <div class="plan-stat-info-container">
-                  <div class="plan-stat-info-number"><%= completed_percentage.floor%>%</div>
+                  <div class="plan-stat-info-number"><%= completed_percentage %>%</div>
                   <div class="plan-stat-info-title">Completion Rate</div>
                 </div>
                 <div class="plan-stat-info-container">
@@ -57,14 +61,18 @@
               <% completed_count =  CompletedWorkout.where(workout_id: workouts) %>
               <% follower_amount = Follow.where(workout_plan: plan).length %>
               <% total_workouts = workouts.length * follower_amount %>
-              <% completed_percentage = 1.0 * completed_count.length/total_workouts * 100%>
+              <% if completed_count.length == 0 %>
+                <% completed_percentage = 0 %>
+              <% else %>
+                <% completed_percentage = (1.0 * completed_count.length/total_workouts * 100).round(0) %>
+              <% end %>
               <div class="plan-stats">
                 <div class="plan-stat-info-container">
                   <div class="plan-stat-info-number"><%= workouts.length %></div>
                   <div class="plan-stat-info-title">Workouts</div>
                 </div>
                 <div class="plan-stat-info-container">
-                  <div class="plan-stat-info-number"><%= completed_percentage.round(0)%>%</div>
+                  <div class="plan-stat-info-number"><%= completed_percentage %>%</div>
                   <div class="plan-stat-info-title">Completion Rate</div>
                 </div>
                 <div class="plan-stat-info-container">
