@@ -6,15 +6,12 @@
   @include align-items(center);
   position: fixed;
   background-color: #fff;
-  border-bottom: 2px solid $secondary;
+  border-bottom: 1px solid $secondary;
   z-index: 2;
   .logo{
-    @include primary-font(25px);
+    @include primary-font(28px);
     margin-left: 25px;
-
-    .thin {
-      font-weight: normal;
-    }
+    font-weight: 600;
   }
 
   .link-group {

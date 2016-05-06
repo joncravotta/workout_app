@@ -1,6 +1,13 @@
 .plans-container {
   @include display(flex);
   @include justify-content(space-around);
+  padding-bottom: 25px;
+}
+
+.plan-type-heading {
+  text-align: center;
+  @include primary-font(36px);
+  padding-bottom: 20px;
 }
 
 .split-container {
@@ -13,7 +20,7 @@
   margin-bottom: 25px;
   @include display(flex);
   @include flex-direction(column);
-  border: 2px solid $secondary;
+  background-color: white;
 }
 
 .plan-image {
@@ -28,16 +35,46 @@
   @include flex-direction(column);
   width: 100%;
 }
-
+.plan-name {
+  @include primary-font(25px);
+  text-align: center;
+  padding-top: 35px;
+}
 .plan-description {
   @include secondary-font(15px);
-  padding: 25px;
+  padding: 35px 50px;
+  text-align: center;
+  color: $secondary;
 }
 
 .plan-stats {
-  @include primary-font(15px);
-  padding: 0 0 10px 25px;
-  color: $primary;
+  @include display(flex);
+  @include align-items(center);
+  @include justify-content(space-around);
+  height: 90px;
+  background-color: $primary;
+}
+
+.plan-stat-info-container {
+  text-align: center;
+}
+
+.plan-stat-info-number {
+  @include secondary-font(35px);
+  font-weight: 100;
+  color: white;
+}
+
+.plan-stat-info-title {
+  @include secondary-font(15px);
+  font-weight: 500;
+  color: white;
+}
+
+.plan-stat-border {
+  height: 100%;
+  background-color: white;
+  width: 1px;
 }
 
 .plan-creator {
