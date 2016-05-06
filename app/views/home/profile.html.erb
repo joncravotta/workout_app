@@ -10,22 +10,26 @@
         <%= link_to 'Find Plans', workout_plans_path, class: 'primary-button' %>
       <% else %>
         <% @following.each do |follow| %>
-          <div class="plan-container">
-            <div class="plan-image">
-              <%= image_tag(follow.workout_plan.picture.url) if follow.workout_plan.picture? %>
-            </div>
-            <div class="plan-content">
-              <div class="plan-description">
-                <p><%= follow.workout_plan.description %></p>
+          <%= link_to workout_plan_workouts_path(follow) do %>
+            <div class="plan-container">
+              <div class="plan-image">
+                <%= image_tag(follow.workout_plan.picture.url) if follow.workout_plan.picture? %>
               </div>
-              <div class="plan-cta">
-                <span class="plan-title"><%= link_to follow.workout_plan.name, workout_plan_workouts_path(follow.workout_plan) %></span>
-                <%= link_to delete_follow_workout_plan_path(follow.id), class: 'plan-follow-button unfollow-button', method: :post do %>
-                unfollow
-                <% end %>
+              <div class="plan-content">
+                <div class="plan-name">
+                  <span><%= follow.workout_plan.name %></span>
+                </div>
+                <div class="plan-description">
+                  <%= follow.workout_plan.description %>
+                </div>
+                <div class="plan-cta">
+                  <%= link_to delete_follow_workout_plan_path(follow.id), class: 'plan-follow-button unfollow-button', method: :post do %>
+                  Unfollow
+                  <% end %>
+                </div>
               </div>
             </div>
-          </div>
+          <% end %>
         <% end %>
       <% end %>
     </div>

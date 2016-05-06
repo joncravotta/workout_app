@@ -53,7 +53,7 @@ class WorkoutPlansController < ApplicationController
     else
       Follow.create(follow: params[:follow], user: current_user, workout_plan: @workout_plan)
       flash[:success] = "You are now following the #{@workout_plan.name} plan."
-      redirect_to home_profile_path  # send suser back to where they were came from
+      redirect_to workout_plan_workouts_path(@workout_plan) 
     end
   end
 # if Business.where(:user_id => current_user.id).present?
