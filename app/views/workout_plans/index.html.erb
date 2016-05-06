@@ -44,7 +44,7 @@
       <% end %>
     </div>
     <div class="split-container">
-      <% @workout_plans.each do |plan| %>
+      <% @workout_plans.reverse.each do |plan| %>
         <%= link_to workout_plan_workouts_path(plan) do %>
           <div class="plan-container">
             <div class="plan-image">
